@@ -99,9 +99,17 @@ bool Contact::setPhoneNumber(std::string str)
 bool Contact::setSecret(std::string str)
 {
     if (str.empty())
-    {
         return (false);
+    bool containsOnlySpaces = true;
+    for (std::string::const_iterator it = str.begin(); it != str.end(); it++) {
+        char c = *it;
+        if (!std::isspace(c)) {
+            containsOnlySpaces = false;
+            break ;
+        }  
     }
+    if (containsOnlySpaces == true)
+        return (false);
     this->_secret = str;
     return (true);
 }
@@ -109,23 +117,43 @@ bool Contact::setSecret(std::string str)
 /* Private Member Functions */
 bool Contact::_isValidWord(std::string const s)
 {
-    for (std::string::const_iterator it = s.begin(); it != s.end(); ++it) {
+    for (std::string::const_iterator it = s.begin(); it != s.end(); it++) {
         char c = *it;
         if (!std::isalpha(c) && c != ' ' && c != '-') {
              return (false);
         }  
     }
+    bool containsOnlySpaces = true;
+    for (std::string::const_iterator it = s.begin(); it != s.end(); it++) {
+        char c = *it;
+        if (!std::isspace(c)) {
+            containsOnlySpaces = false;
+            break ;
+        }  
+    }
+    if (containsOnlySpaces == true)
+        return (false);
     return (true);
 }
 
 bool Contact::_isValidNumber(std::string const s)
 {
-    for (std::string::const_iterator it = s.begin(); it != s.end(); ++it) {
+    for (std::string::const_iterator it = s.begin(); it != s.end(); it++) {
         char c = *it;
         if (!std::isdigit(c) && c != ' ' && c != '-') {
              return (false);
         }  
     }
+    bool containsOnlySpaces = true;
+    for (std::string::const_iterator it = s.begin(); it != s.end(); it++) {
+        char c = *it;
+        if (!std::isspace(c)) {
+            containsOnlySpaces = false;
+            break ;
+        }  
+    }
+    if (containsOnlySpaces == true)
+        return (false);
     return (true);
 }
 
@@ -137,16 +165,18 @@ bool Contact::isEmpty(void) const {
     this->_phonenumber.empty() ||
     this->_secret.empty())
         return (true);
+    bool containsOnlySpaces = true;
+
     return (false);
 }
 
 bool Contact::displayContactInfo(void) const {
     if (this->isEmpty())
         return (false);
-    std::cout   << "Enter first name: " << this->getFirstName() << std::endl;
-                << "Enter last name: " << this->getLastName() << std::endl;
-                << "Enter nickname: " << this->getNickname() << std::endl;
-                << "Enter phone number: " << this->getPhoneNumber() << std::endl;
+    std::cout   << "Enter first name: " << this->getFirstName() << std::endl
+                << "Enter last name: " << this->getLastName() << std::endl
+                << "Enter nickname: " << this->getNickname() << std::endl
+                << "Enter phone number: " << this->getPhoneNumber() << std::endl
                 << "Enter darkest secret: " << this->getSecret() << std::endl;
     return (true);
 }
