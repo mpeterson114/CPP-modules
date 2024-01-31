@@ -22,7 +22,7 @@ std::string Phonebook::_getInput(std::string const prompt)
         std::cout << std::endl;
         return (std::string());
     }
-    line = trimBlank(line);
+    // line = trimBlank(line);
     return (line);
 }
  // incrementIndex necessary? or include directly in main...

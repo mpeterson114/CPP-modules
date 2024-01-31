@@ -42,6 +42,11 @@ bool Contact::setFirstName(std::string str)
     {
         return (false);
     }
+    else if (!_containsOnlySpaces(str))
+    {
+       std::cout << "Invalid input: Entry cannot contain only whitespace" << std::endl;
+       return (false);
+    }
     else if (!_isValidWord(str))
     {
         std::cout << "Invalid input: Names can only contain letters, spaces and/or hyphens" << std::endl;
@@ -56,6 +61,11 @@ bool Contact::setLastName(std::string str)
     if (str.empty())
     {
         return (false);
+    }
+    else if (!_containsOnlySpaces(str))
+    {
+       std::cout << "Invalid input: entry cannot contain only whitespace" << std::endl;
+       return (false);
     }
     else if (!_isValidWord(str))
     {
@@ -72,6 +82,11 @@ bool Contact::setNickname(std::string str)
     {
         return (false);
     }
+    else if (!_containsOnlySpaces(str))
+    {
+       std::cout << "Invalid input: entry cannot contain only whitespace" << std::endl;
+       return (false);
+    }
     else if (!_isValidWord(str))
     {
         std::cout << "Invalid input: Names can only contain letters, spaces and hyphens" << std::endl;
@@ -87,6 +102,11 @@ bool Contact::setPhoneNumber(std::string str)
     {
         return (false);
     }
+    else if (!_containsOnlySpaces(str))
+    {
+       std::cout << "Invalid input: entry cannot contain only whitespace" << std::endl;
+       return (false);
+    }
     else if (!_isValidNumber(str))
     {
         std::cout << "Invalid input: Phone numbers can only contain digits, spaces and hyphens" << std::endl;
@@ -100,21 +120,33 @@ bool Contact::setSecret(std::string str)
 {
     if (str.empty())
         return (false);
-    bool containsOnlySpaces = true;
-    for (std::string::const_iterator it = str.begin(); it != str.end(); it++) {
-        char c = *it;
-        if (!std::isspace(c)) {
-            containsOnlySpaces = false;
-            break ;
-        }  
+    else if (!_containsOnlySpaces(str))
+    {
+       std::cout << "Invalid input: entry cannot contain only whitespace" << std::endl;
+       return (false);
     }
-    if (containsOnlySpaces == true)
-        return (false);
     this->_secret = str;
     return (true);
 }
 
 /* Private Member Functions */
+bool Contact::_containsOnlySpaces(std::string const s)
+{
+    bool onlySpaces = true;
+    for (std::string::const_iterator it = s.begin(); it != s.end(); it++) {
+        char c = *it;
+        if (!std::isspace(c)) {
+            onlySpaces = false;
+            break ;
+        }
+        else 
+            onlySpaces = true; 
+    }
+    if (onlySpaces == true)
+        return (false);
+    return (true);
+}
+
 bool Contact::_isValidWord(std::string const s)
 {
     for (std::string::const_iterator it = s.begin(); it != s.end(); it++) {
@@ -122,17 +154,7 @@ bool Contact::_isValidWord(std::string const s)
         if (!std::isalpha(c) && c != ' ' && c != '-') {
              return (false);
         }  
-    }
-    bool containsOnlySpaces = true;
-    for (std::string::const_iterator it = s.begin(); it != s.end(); it++) {
-        char c = *it;
-        if (!std::isspace(c)) {
-            containsOnlySpaces = false;
-            break ;
-        }  
-    }
-    if (containsOnlySpaces == true)
-        return (false);
+    }   
     return (true);
 }
 
@@ -144,16 +166,6 @@ bool Contact::_isValidNumber(std::string const s)
              return (false);
         }  
     }
-    bool containsOnlySpaces = true;
-    for (std::string::const_iterator it = s.begin(); it != s.end(); it++) {
-        char c = *it;
-        if (!std::isspace(c)) {
-            containsOnlySpaces = false;
-            break ;
-        }  
-    }
-    if (containsOnlySpaces == true)
-        return (false);
     return (true);
 }
 

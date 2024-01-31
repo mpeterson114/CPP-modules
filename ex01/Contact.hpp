@@ -13,15 +13,16 @@ private:
         std::string _phonenumber;
         std::string _secret;
 
-        bool _isValidWord(std::string const input);
+        bool _isValidWord(std::string const s);
         bool _isValidNumber(std::string const input);
-
+        
 public:
         Contact();
         ~Contact();
 
         bool    isEmpty(void) const;
         bool    displayContactInfo(void) const;
+        bool _containsOnlySpaces(std::string const s);
         // Getters
         std::string const getFirstName(void) const;
         std::string const getLastName(void) const;
