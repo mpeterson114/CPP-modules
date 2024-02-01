@@ -11,9 +11,9 @@ private:
     bool _error;
     
     std::string _getInput(std::string const prompt);
-    void _indexCheck(void);
-    bool _displayContactByIndex(std::string const input) const;
-    void _displayTable(int const index) const;
+    // void _indexCheck(void);
+    bool _showContactAtIndex(std::string const input) const;
+    void _displayTable() const;
     void _formatTableInput(std::string str) const;
 
 public:

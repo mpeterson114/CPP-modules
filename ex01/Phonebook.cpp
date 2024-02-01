@@ -27,7 +27,7 @@ std::string Phonebook::_getInput(std::string const prompt)
 }
  // incrementIndex necessary? or include directly in main...
 
-void Phonebook::_displayTable(int const index) const
+void Phonebook::_displayTable() const
 {
     std::cout   << "+------------PHONEBOOK CONTACTS-------------+" << std::endl
                 << "|  Index   |First Name| Last Name| Nickname |" << std::endl
@@ -35,14 +35,14 @@ void Phonebook::_displayTable(int const index) const
     int i = 0;
     while (i < 8)
     {
-        if (this->_contacts[index].isEmpty())
-            return ;
-        std::cout << "|" << std::setw(10) << index << "|";
-        _formatTableInput(this->_contacts[index].getFirstName());
-        _formatTableInput(this->_contacts[index].getLastName());
-        _formatTableInput(this->_contacts[index].getNickname());
-        std::cout   << std::endl
-                    << "+----------+----------+----------+----------+" << std::endl;
+        if (!this->_contacts[i].isEmpty()) {
+            std::cout << "|" << std::setw(10) << i << "|";
+            _formatTableInput(this->_contacts[i].getFirstName());
+            _formatTableInput(this->_contacts[i].getLastName());
+            _formatTableInput(this->_contacts[i].getNickname());
+            std::cout   << std::endl
+            << "+----------+----------+----------+----------+" << std::endl;
+        }
         i++;
     }
     std::cout << std::endl;
@@ -59,21 +59,21 @@ void Phonebook::_formatTableInput(std::string str) const
     return ;
 }
 
-bool Phonebook::_displayContactByIndex(std::string const input) const
+bool Phonebook::_showContactAtIndex(std::string const input) const
 {
-    int index;
+    int i;
     if (input.length() == 1 && std::isdigit(input[0])) {
-        index = input[0] - '0';
-        if (index >= 0 && index <= 7) {
-            if (this->_contacts[index].displayContactInfo())
+        i = input[0] - '0';
+        if (i >= 0 && i <= 7) {
+            if (this->_contacts[i].displayContactInfo())
                 return (true);
-        }
-        else {
-            std::cout << "Error: No contact found at index [" << index << "]. Please try again." << std::endl;
-            return (false);
+            else {
+                std::cout << "Error: No contact found at i [" << i << "]. Please try again." << std::endl;
+                return (false);
+            }
         }
     }
-    std::cout << "Error: \'" << input << "' is not a valid index. Must be a number between '0' and '7'" << std::endl;
+    std::cout << "Error: \'" << input << "' is not a valid i. Must be a number between '0' and '7'" << std::endl;
     return (false);
 }
 
@@ -140,10 +140,10 @@ bool Phonebook::searchContact(void)
 		std::cout << "No contacts saved. Please ADD a contact." << std::endl;
 		return (true);
 	}
-	this->_displayTable(_index);
-	input = _getInput("the index of the contact to display");
+	this->_displayTable();
+	input = _getInput("the i of the contact to display");
 	if (input.empty())
 		return (false);
-	this->_displayContactByIndex((std::string const)input);
+	this->_showContactAtIndex((std::string const)input);
 	return (true);
 }
