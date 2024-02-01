@@ -40,5 +40,5 @@ int main(void)
             std::cout << "Invalid input, please choose from one of the following commands: ADD, SEARCH, or EXIT" << std::endl;
     }
     std::cout << "Exiting Phonebook...goodbye!" << std::endl;
-        return (0);
+    return (0);
 }

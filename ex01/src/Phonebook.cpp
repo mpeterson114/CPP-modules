@@ -142,8 +142,8 @@ bool Phonebook::searchContact(void)
 	}
 	this->_displayTable();
 	input = _getInput("the i of the contact to display");
-	if (input.empty())
-		return (false);
+	// if (input.empty())
+	// 	return (false);
 	this->_showContactAtIndex((std::string const)input);
 	return (true);
 }
