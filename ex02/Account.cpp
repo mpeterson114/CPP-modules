@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 10:47:28 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/02/01 10:49:45 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/02/01 11:58:05 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,4 @@
 #include <string>
 #include <ctime>
 #include "Account.hpp"
-
 
