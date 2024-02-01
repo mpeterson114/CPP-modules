@@ -1,5 +1,3 @@
-NAME = myphonebook
-
 ORANGE =		\033[38;5;209m
 CYAN =			\033[0;96m
 PURPLE=			\033[0;35m
@@ -8,32 +6,42 @@ RED =			\033[0;91m
 GREEN =			\033[0;92m
 WHITE =			\033[0;37m
 
-SRCS = ./srcs/Contact.cpp \
-		./srcs/Phonebook.cpp \
-		./srcs/main.cpp \
-
-OBJS = $(SRCS:.cpp=.o)
+NAME = myphonebook
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
+
+SRC_PATH = ./sources/
+OBJ_PATH = ./objects/
+INC_PATH = ./includes/
+SRC = main.cpp \
+		Phonebook.cpp \
+		Contact.cpp \
+		
+SRCS = $(addprefix $(SRC_PATH), $(SRC))
+OBJ = $(SRC:.cpp=.o)
+OBJS = $(addprefix $(OBJ_PATH), $(OBJ))
+INC = -I $(INC_PATH)
 REMOVE = rm -f
 
-all: $(NAME)
+all: $(OBJ_PATH) $(NAME)
+
+$(OBJ_PATH):
+	@mkdir -p $(OBJ_PATH)
+
+$(OBJ_PATH)%.o: $(SRC_PATH)%.cpp
+		@echo "$(YELLOW) Compiling	$(WHITE)$<"
+		@$(CC) $(CFLAGS) -c $< -o $@ $(INC)
 
 $(NAME) : $(OBJS)
-		@$(CC) $(CFLAGS) -o $(NAME) $(OBJS)	
+		@$(CC) $(CFLAGS) $(OBJS) -o $@ $(INC)
 		@echo "\n$(GREEN)Objects and executables created successfully ✅\n"
 
-%.o: %.cpp
-		@echo "$(YELLOW) Compiling	$(WHITE)$<"
-		@$(CC) $(CFLAGS) -c $< -o $@
-
 clean:
-		@$(REMOVE) $(OBJS)
+		@$(REMOVE) $(OBJ_PATH)
 		@echo "\n$(PURPLE) Objects cleaned successfully ✅\n"
 
-fclean:
-		@$(REMOVE) $(OBJS)
+fclean: clean
 		@$(REMOVE) $(NAME)
 		@echo "\n$(ORANGE) Objects and executables deleted successfully ✅\n"
 	

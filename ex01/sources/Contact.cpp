@@ -177,8 +177,6 @@ bool Contact::isEmpty(void) const {
     this->_phonenumber.empty() ||
     this->_secret.empty())
         return (true);
-    bool containsOnlySpaces = true;
-
     return (false);
 }
 

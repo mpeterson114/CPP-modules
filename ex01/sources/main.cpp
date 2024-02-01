@@ -1,5 +1,10 @@
 #include "Phonebook.hpp"
 
+// void leaks(void)
+// {
+//     system("leaks myphonebook");
+// }
+
 std::string getCommand(Phonebook *book) {
     std::string command;
 
@@ -20,6 +25,7 @@ int main(void)
     std::string command;
 
     std::cout << std::endl << "Opening Phonebook..." << std::endl;
+    // atexit(leaks);
     while (true){
         std::cout   << std::endl
                     <<"+-----------------MAIN MENU-----------------+" << std::endl
