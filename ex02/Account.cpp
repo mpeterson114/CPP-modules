@@ -15,6 +15,12 @@
 #include <ctime>
 #include "Account.hpp"
 
+/* Comparing files:
+    ./ListAccounts > new.log
+    < new.log cut -d " " -f2 > new_no_timestamps.log
+    < 19920104_091532.log cut -d " " -f2 > old_no_timestamps.log
+    diff -s old_no_timestamps.log new_no_timestamps.log */
+
 /* Init Static Member Variables */
 int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;

@@ -4,7 +4,7 @@ YELLOW =		\033[0;93m
 GREEN =			\033[0;92m
 WHITE =			\033[0;37m
 
-NAME = list_accounts
+NAME = ListAccounts
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
