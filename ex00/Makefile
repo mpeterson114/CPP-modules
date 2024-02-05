@@ -1,12 +1,10 @@
-NAME = megaphone
-
 ORANGE =		\033[38;5;209m
-CYAN =			\033[0;96m
 PURPLE=			\033[0;35m
 YELLOW =		\033[0;93m
-RED =			\033[0;91m
 GREEN =			\033[0;92m
 WHITE =			\033[0;37m
+
+NAME = megaphone
 
 SRCS = megaphone.cpp
 OBJS = $(SRCS:.cpp=.o)
