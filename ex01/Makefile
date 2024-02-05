@@ -22,7 +22,7 @@ SRCS = $(addprefix $(SRC_PATH), $(SRC))
 OBJ = $(SRC:.cpp=.o)
 OBJS = $(addprefix $(OBJ_PATH), $(OBJ))
 INC = -I $(INC_PATH)
-REMOVE = rm -f
+REMOVE = rm -rf
 
 all: $(OBJ_PATH) $(NAME)
 
@@ -39,11 +39,11 @@ $(NAME) : $(OBJS)
 
 clean:
 		@$(REMOVE) $(OBJ_PATH)
-		@echo "\n$(PURPLE) Objects cleaned successfully ✅\n"
+		@echo "\n$(PURPLE) Objects cleaned successfully✅\n"
 
 fclean: clean
 		@$(REMOVE) $(NAME)
-		@echo "\n$(ORANGE) Objects and executables deleted successfully ✅\n"
+		@echo "$(ORANGE) Objects and executables deleted successfully ✅\n"
 	
 re:		fclean all
 
