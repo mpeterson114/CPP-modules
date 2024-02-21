@@ -14,5 +14,6 @@ void HumanB::attack(void) const
 
 void HumanB::setWeapon(Weapon &newWeapon)
 {
+    // if (newWeapon.getType().empty())
     this->weapon = &newWeapon;
 }
