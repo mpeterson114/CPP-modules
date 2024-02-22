@@ -15,7 +15,7 @@ int replace(char **argv, std::string contents)
     while (i < (int)contents.size()) //or while i++ ?;
     {
         pos = contents.find(argv[2], i);
-        if (pos != std::string::npos)
+        if (pos != (int)std::string::npos && pos == i)
         {
             outfile << argv[3];
             i += std::string(argv[2]).size() - 1;
@@ -36,7 +36,8 @@ int main(int argc, char **argv)
 
     if (argc != 4)
     {
-        std::cout << "Wrong number of arguments. Usage: " << argv[0] << " <filename> <text to replace> <replacement text>" << std::endl;
+        std::cout << "Wrong number of arguments." << std::endl;
+        std::cout << "Usage: '" << argv[0] << " <filename> \"text to replace\" \"replacement text\"'." << std::endl;
         return (1);
     }
     else
