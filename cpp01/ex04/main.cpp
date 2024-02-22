@@ -12,7 +12,7 @@ int replace(char **argv, std::string contents)
     if (outfile.fail())
         return (1);
     i = 0;
-    while (i < (int)contents.size()) //or while i++ ?;
+    while (i < (int)contents.size())
     {
         pos = contents.find(argv[2], i);
         if (pos != (int)std::string::npos && pos == i)
