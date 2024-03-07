@@ -8,6 +8,7 @@ NAME = Harl_2.0
 
 SRCS = main.cpp \
 		Harl.cpp \
+		
 OBJS = $(SRCS:.cpp=.o)
 
 CC = c++
