@@ -38,9 +38,10 @@ clean:
 		@$(REMOVE) $(OBJ_PATH)
 		@echo "\n$(PURPLE) Objects cleaned successfully✅\n"
 
-fclean: clean
+fclean: 
+		@$(REMOVE) $(OBJS)
 		@$(REMOVE) $(NAME)
-		@echo "$(ORANGE) Objects and executables deleted successfully ✅\n"
+		@echo "\n$(ORANGE) Objects and executables deleted successfully ✅\n"
 	
 re:		fclean all
 

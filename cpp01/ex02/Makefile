@@ -7,7 +7,7 @@ WHITE =			\033[0;37m
 NAME = hi_brain
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
 SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
@@ -28,9 +28,11 @@ clean:
 		@$(REMOVE) $(OBJ)
 		@echo "\n$(PURPLE) Objects cleaned successfully✅\n"
 
-fclean: clean
+fclean: 
+		@$(REMOVE) $(OBJS)
 		@$(REMOVE) $(NAME)
-		@echo "$(ORANGE) Objects and executables deleted successfully ✅\n"
+		@echo "\n$(ORANGE) Objects and executables deleted successfully ✅\n"
+	
 	
 re:		fclean all
 

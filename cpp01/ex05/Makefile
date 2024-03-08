@@ -12,7 +12,7 @@ SRCS = main.cpp \
 OBJS = $(SRCS:.cpp=.o)
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 REMOVE = rm -f
 
 all: $(NAME)

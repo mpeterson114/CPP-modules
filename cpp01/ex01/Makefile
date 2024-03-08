@@ -7,7 +7,7 @@ WHITE =			\033[0;37m
 NAME = Moar_Brainz
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
 SRC_PATH = ./src/
 OBJ_PATH = ./objects/
@@ -39,9 +39,10 @@ clean:
 		@$(REMOVE) $(OBJ_PATH)
 		@echo "\n$(PURPLE) Objects cleaned successfully✅\n"
 
-fclean: clean
+fclean: 
+		@$(REMOVE) $(OBJS)
 		@$(REMOVE) $(NAME)
-		@echo "$(ORANGE) Objects and executables deleted successfully ✅\n"
+		@echo "\n$(ORANGE) Objects and executables deleted successfully ✅\n"
 	
 re:		fclean all
 
