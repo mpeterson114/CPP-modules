@@ -29,7 +29,7 @@ clean:
 		@echo "\n$(PURPLE) Objects cleaned successfully✅\n"
 
 fclean: 
-		@$(REMOVE) $(OBJS)
+		@$(REMOVE) $(OBJ)
 		@$(REMOVE) $(NAME)
 		@echo "\n$(ORANGE) Objects and executables deleted successfully ✅\n"
 	
