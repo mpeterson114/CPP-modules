@@ -101,7 +101,7 @@ Fixed Fixed::operator/(Fixed const &value) const
 
 Fixed &Fixed::operator++(void)              // pre-incrementation
 {
-    ++this->_fixedPointVal;
+    this->_fixedPointVal++;
     return (*this);
 }
 
@@ -113,15 +113,51 @@ Fixed Fixed::operator++(int)              // post-incrementation
     return (tmp);
 }
 
+Fixed &Fixed::operator--(void)              // pre-decrementation
+{
+    this->_fixedPointVal--;
+    return (*this);
+}
 
+Fixed Fixed::operator--(int)              // post-decrementation
+{
+    Fixed tmp(*this);
 
+    --(*this);
+    return (tmp);
+}
 
 /****************************************************************/
 /*                  MIN/MAX STATIC FUNCTIONS                    */
 /****************************************************************/
 
+Fixed &Fixed::min(Fixed &x, Fixed &y)
+{
+    if (x.getRawBits() < y.getRawBits())
+        return (x);
+    return (y);
+}
 
+const Fixed &Fixed::min(Fixed const &x, Fixed const &y)
+{
+    if (x.getRawBits() < y.getRawBits())
+        return (x);
+    return (y);
+}
 
+Fixed &Fixed::max(Fixed &x, Fixed &y)
+{
+    if (x.getRawBits() > y.getRawBits())
+        return (x);
+    return (y);
+}
+
+const Fixed &Fixed::max(Fixed const &x, Fixed const &y)
+{
+    if (x.getRawBits() > y.getRawBits())
+        return (x);
+    return (y);
+}
 
 /****************************************************************/
 /*                   GETTERS & SETTERS                          */
