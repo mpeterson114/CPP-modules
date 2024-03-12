@@ -46,7 +46,7 @@ bool Fixed::operator>(const Fixed &value) const
     return this->_fixedPointVal > value._fixedPointVal;
 }
 
-bool Fixed::operator>(Fixed const &value) const
+bool Fixed::operator<(Fixed const &value) const
 {
     return this->_fixedPointVal < value._fixedPointVal;
 }
