@@ -30,19 +30,19 @@ ClapTrap &ClapTrap::operator=(ClapTrap const &copy)
 
 ClapTrap::~ClapTrap() 
 {
-    std::cout << "ClapTrap destructor called" << std::endl;
+    std::cout << "ClapTrap " << this->_name << " destructor called" << std::endl;
 }
 
 void ClapTrap::attack(const std::string &target)
 {
     if (this->_energyPoints <= 0)
     {
-        std::cout << "No energy points left, unable to attack" << std::endl;
+        std::cout << "No energy points left, ClapTrap unable to attack" << std::endl;
         return ;
     }
     if (this->_hitPoints <= 0)
     {
-        std::cout << "No hit points left, unable to attack" << std::endl;
+        std::cout << "No hit points left, ClapTrap unable to attack" << std::endl;
         return ;
     }
     std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
