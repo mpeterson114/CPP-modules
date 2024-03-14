@@ -4,7 +4,7 @@ YELLOW =		\033[0;93m
 GREEN =			\033[0;92m
 WHITE =			\033[0;37m
 
-NAME = ClapTrap
+NAME = ScavTrap
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
@@ -14,6 +14,7 @@ OBJ_PATH = ./objects/
 INC_PATH = ./inc/
 SRC = main.cpp \
 		ClapTrap.cpp \
+		ScavTrap.cpp \
 		
 SRCS = $(addprefix $(SRC_PATH), $(SRC))
 OBJ = $(SRC:.cpp=.o)

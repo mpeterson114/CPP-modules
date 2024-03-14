@@ -1,26 +1,27 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main(void) 
 {
     std::cout << "----------Constructors------------" << std::endl;
     std::cout << std::endl;
-    ClapTrap a = ClapTrap("A");
-    ClapTrap b = ClapTrap("B");
+    ScavTrap c("A");
+    ScavTrap d("B");
     std::cout << std::endl;
 
     std::cout << "-------------Battle---------------" << std::endl;
     std::cout << std::endl;
-    a.attack("B");
-    b.takeDamage(0);
-    b.beRepaired(1);
-    a.attack("B");
-    b.takeDamage(5);
-    a.attack("B");
-    b.takeDamage(5);
-    b.beRepaired(1);
-    b.beRepaired(1);
-    a.attack("B");
-    b.takeDamage(0);
+    c.attack("B");
+    d.takeDamage(0);
+    d.beRepaired(1);
+    d.attack("A");
+    c.attack("B");
+    d.takeDamage(5);
+    c.attack("B");
+    d.takeDamage(5);
+    d.beRepaired(1);
+    d.beRepaired(1);
+    c.attack("B");
+    d.takeDamage(0);
     std::cout << std::endl;
     std::cout << "----------Destructors------------" << std::endl;
     std::cout << std::endl;
