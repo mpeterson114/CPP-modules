@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 10:06:49 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/03/07 10:06:50 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/03/14 15:16:29 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ class HumanA
         ~HumanA(void);
 
         void attack(void) const;
-        // Weapon &getWeapon(void) const;
 };
 
 #endif

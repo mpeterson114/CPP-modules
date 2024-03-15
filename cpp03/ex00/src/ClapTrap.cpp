@@ -30,7 +30,7 @@ ClapTrap &ClapTrap::operator=(ClapTrap const &copy)
 
 ClapTrap::~ClapTrap() 
 {
-    std::cout << "ClapTrap destructor called" << std::endl;
+    std::cout << "ClapTrap " << this->_name << " destructor called" << std::endl;
 }
 
 void ClapTrap::attack(const std::string &target)
