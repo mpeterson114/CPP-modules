@@ -51,6 +51,11 @@ void ClapTrap::attack(const std::string &target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
+    if ((int)amount < 0)
+    {
+        std::cout << "'Amount' error, please enter a positive value" << std::endl;
+        return ;
+    }
     if (this->_hitPoints <= 0)
     {
         std::cout << "ClapTrap " << this->_name << " is already dead, cannot be attacked." << std::endl;
@@ -59,37 +64,30 @@ void ClapTrap::takeDamage(unsigned int amount)
     std::cout << "ClapTrap " << this->_name << " has been hit and has lost " << amount << " hit points." << std::endl;
     this->_hitPoints -= amount;
     if (this->_hitPoints <= 0)
+    {
         std::cout << "ClapTrap " << this->_name << " has died, ran out of hit points." << std::endl;
+        if (this->_hitPoints < 0)
+            this->_hitPoints = 0;
+    }   
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
+    if ((int)amount < 0)
+    {
+        std::cout << "'Amount' error, please enter a positive value" << std::endl;
+        return ;
+    }
     if (this->_energyPoints <= 0)
     {
         std::cout << "No energy points left, ClapTrap unable to repair itself" << std::endl;
         return ;
     }
-    if (this->_hitPoints <= 0)
-    {
-        std::cout << "Beyond repair, ClapTrap " << this->_name << " is already dead." << std::endl;
-        return ;
-    }
-    if (this->_hitPoints >= 10)
-    {
-        std::cout << "ClapTrap " << this->_name << " already has max hit points." << std::endl;
-        return ;
-    }
-    if (this->_hitPoints + amount >= 10)
-    {
-        std::cout << "ClapTrap " << this->_name << " has gained max hit points." << std::endl;
-        this->_hitPoints = 10;
-        this->_energyPoints -= 1;
-        return ;
-    }
-    std::cout << "ClapTrap " << this->_name << " has repaired itself and gained " << amount << " hit points back." << std::endl;
+    if (this->_hitPoints > 0)
+        std::cout << "ClapTrap " << this->_name << " has repaired itself and gained " << amount << " hit points back." << std::endl;
+    else
+        std::cout << "ClapTrap " << this->_name << " has been revived! Gained " << amount << " hit points back." << std::endl;
     this->_energyPoints -= 1;
     this->_hitPoints += amount;
 }
-
-
 
