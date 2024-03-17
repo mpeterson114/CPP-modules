@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 17:00:40 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/03/17 17:00:41 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/03/17 19:07:14 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include <string>
 
 class DiamondTrap : public FragTrap, public ScavTrap
 {
@@ -24,7 +25,7 @@ class DiamondTrap : public FragTrap, public ScavTrap
     public:
         DiamondTrap();
         DiamondTrap(std::string name);
-        DiamondTrap(DiamondTrap const &copy);
+        DiamondTrap(DiamondTrap const &other);
         DiamondTrap &operator=(DiamondTrap const &src);
         ~DiamondTrap();
 
