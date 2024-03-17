@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 17:00:27 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/03/17 18:59:48 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/03/17 20:03:46 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,32 @@ int main(void)
 {
     std::cout << "----------Constructors------------" << std::endl;
     std::cout << std::endl;
-    std::string diamondTrapName = "A";
-	// std::string scavTrapName = "B";
-    std::string clapTrapName = "C";
-
-    DiamondTrap diamondTrap(diamondTrapName);
-	// ScavTrap	scavTrap(scavTrapName);
+    std::string clapTrapName = "CT-A";
+    std::string scavTrapName = "ST-B";
+    std::string diamondTrapName = "DT-C";
+	
     ClapTrap    clapTrap(clapTrapName);
+	ScavTrap	scavTrap(scavTrapName);
+    DiamondTrap diamondTrap(diamondTrapName);
     std::cout << std::endl;
 
     std::cout << "-------------Battle---------------" << std::endl;
     std::cout << std::endl;
     diamondTrap.whoAmI();
+    clapTrap.attack(diamondTrapName);
+    diamondTrap.takeDamage(0);
+    scavTrap.attack(diamondTrapName);
+    diamondTrap.takeDamage(20);
+    diamondTrap.beRepaired(10);
+    diamondTrap.attack(scavTrapName);
+    scavTrap.takeDamage(30);
+    diamondTrap.guardGate();
+    diamondTrap.highFivesGuys();
+    for (int i = 6; i > 0; i--)
+    {
+        scavTrap.attack(diamondTrapName);
+        diamondTrap.takeDamage(20);
+    }
     // scavTrap.guardGate();
     // diamondTrap.highFivesGuys();
 	// diamondTrap.guardGate();

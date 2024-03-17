@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 17:00:36 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/03/17 18:50:47 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/03/17 20:15:19 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class FragTrap: virtual public ClapTrap
         FragTrap &operator=(FragTrap const &src);
         ~FragTrap();
 
-        void    attack(const std::string &target);
+        // void    attack(const std::string &target);
         void    highFivesGuys(void);
 };
 

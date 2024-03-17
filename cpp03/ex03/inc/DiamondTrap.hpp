@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 17:00:40 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/03/17 19:07:14 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/03/17 20:05:10 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class DiamondTrap : public FragTrap, public ScavTrap
         DiamondTrap &operator=(DiamondTrap const &src);
         ~DiamondTrap();
 
-        void    attack(const std::string &target);
+        using ScavTrap::attack;
         void    whoAmI(void);
 };
 
