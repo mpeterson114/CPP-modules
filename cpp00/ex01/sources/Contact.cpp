@@ -6,13 +6,12 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 09:46:50 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/02/01 09:46:51 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/03/21 14:49:58 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
-/* Constructor/Destructor */
 Contact::Contact()
 {
 }
@@ -21,7 +20,7 @@ Contact::~Contact()
 {
 }
 
-/* Getters */
+/* GETTERS */
 std::string const Contact::getFirstName(void) const
 {
     return (this->_firstname);
@@ -47,7 +46,7 @@ std::string const Contact::getSecret(void) const
     return (this->_secret);
 }
 
-/* Setters */
+/* SETTERS */
 bool Contact::setFirstName(std::string str)
 {
     if (str.empty())
@@ -56,12 +55,12 @@ bool Contact::setFirstName(std::string str)
     }
     else if (!_containsOnlySpaces(str))
     {
-       std::cout << "Invalid input: Entry cannot contain only whitespace" << std::endl;
+       std::cout << "\033[38;5;161mInvalid input: Entry cannot contain only whitespace\033[0m" << std::endl;
        return (false);
     }
     else if (!_isValidWord(str))
     {
-        std::cout << "Invalid input: Names can only contain letters, spaces and/or hyphens" << std::endl;
+        std::cout << "\033[38;5;161mInvalid input: Names can only contain letters, spaces and/or hyphens\033[0m" << std::endl;
         return (false);
     }
     this->_firstname = str;
@@ -76,12 +75,12 @@ bool Contact::setLastName(std::string str)
     }
     else if (!_containsOnlySpaces(str))
     {
-       std::cout << "Invalid input: entry cannot contain only whitespace" << std::endl;
+       std::cout << "\033[38;5;161mInvalid input: entry cannot contain only whitespace\033[0m" << std::endl;
        return (false);
     }
     else if (!_isValidWord(str))
     {
-        std::cout << "Invalid input: Names can only contain letters, spaces and/or hyphens" << std::endl;
+        std::cout << "\033[38;5;161mInvalid input: Names can only contain letters, spaces and/or hyphens\033[0m" << std::endl;
         return (false);
     }
     this->_lastname = str;
@@ -96,12 +95,12 @@ bool Contact::setNickname(std::string str)
     }
     else if (!_containsOnlySpaces(str))
     {
-       std::cout << "Invalid input: entry cannot contain only whitespace" << std::endl;
+       std::cout << "\033[38;5;161mInvalid input: entry cannot contain only whitespace\033[0m" << std::endl;
        return (false);
     }
     else if (!_isValidWord(str))
     {
-        std::cout << "Invalid input: Names can only contain letters, spaces and hyphens" << std::endl;
+        std::cout << "\033[38;5;161mInvalid input: Names can only contain letters, spaces and hyphens\033[0m" << std::endl;
         return (false);
     }
     this->_nickname = str;
@@ -116,12 +115,12 @@ bool Contact::setPhoneNumber(std::string str)
     }
     else if (!_containsOnlySpaces(str))
     {
-       std::cout << "Invalid input: entry cannot contain only whitespace" << std::endl;
+       std::cout << "\033[38;5;161mInvalid input: entry cannot contain only whitespace\033[0m" << std::endl;
        return (false);
     }
     else if (!_isValidNumber(str))
     {
-        std::cout << "Invalid input: Phone numbers can only contain digits, spaces and hyphens" << std::endl;
+        std::cout << "\033[38;5;161mInvalid input: Phone numbers can only contain digits, spaces and hyphens\033[0m" << std::endl;
         return (false);
     }
     this->_phonenumber = str;
@@ -134,14 +133,14 @@ bool Contact::setSecret(std::string str)
         return (false);
     else if (!_containsOnlySpaces(str))
     {
-       std::cout << "Invalid input: entry cannot contain only whitespace" << std::endl;
+       std::cout << "\033[38;5;161mInvalid input: entry cannot contain only whitespace\033[0m" << std::endl;
        return (false);
     }
     this->_secret = str;
     return (true);
 }
 
-/* Private Member Functions */
+/* PRIVATE FUNCTIONS */
 bool Contact::_containsOnlySpaces(std::string const s)
 {
     bool onlySpaces = true;
@@ -181,7 +180,7 @@ bool Contact::_isValidNumber(std::string const s)
     return (true);
 }
 
-/* Public Member Functions */
+/* PUBLIC FUNCTIONS */
 bool Contact::isEmpty(void) const {
     if (this->_firstname.empty() ||
     this->_lastname.empty() ||
@@ -195,10 +194,10 @@ bool Contact::isEmpty(void) const {
 bool Contact::displayContactInfo(void) const {
     if (this->isEmpty())
         return (false);
-    std::cout   << "Enter first name: " << this->getFirstName() << std::endl
-                << "Enter last name: " << this->getLastName() << std::endl
-                << "Enter nickname: " << this->getNickname() << std::endl
-                << "Enter phone number: " << this->getPhoneNumber() << std::endl
-                << "Enter darkest secret: " << this->getSecret() << std::endl;
+    std::cout   << "First name: " << this->getFirstName() << std::endl
+                << "Last name: " << this->getLastName() << std::endl
+                << "Nickname: " << this->getNickname() << std::endl
+                << "Phone number: " << this->getPhoneNumber() << std::endl
+                << "Darkest secret: " << this->getSecret() << std::endl;
     return (true);
 }

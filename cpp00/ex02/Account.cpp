@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 10:47:28 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/02/01 11:58:05 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/03/21 16:35:34 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 /* Comparing files:
     ./ListAccounts > new.log
-    < new.log cut -d " " -f2 > new_no_timestamps.log
-    < 19920104_091532.log cut -d " " -f2 > old_no_timestamps.log
+    < new.log cut -d " " -f2 | head -n 51 > new_no_timestamps.log
+    < 19920104_091532.log cut -d " " -f2 | head -n 51 > old_no_timestamps.log
     diff -s old_no_timestamps.log new_no_timestamps.log */
 
 /* Init Static Member Variables */
@@ -89,7 +89,7 @@ void Account::_displayTimestamp()
     std::string timestamp;
 
     t_default = std::time(NULL);
-    timestamp.resize(20);
+    timestamp.resize(18);
     std::strftime(&timestamp[0], timestamp.size(), "[%Y%m%d_%H%M%S] ", std::localtime(&t_default));
     std::cout << timestamp;
 }

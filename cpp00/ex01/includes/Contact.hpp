@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 09:46:46 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/02/01 09:46:47 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/03/21 14:48:43 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ public:
         bool    isEmpty(void) const;
         bool    displayContactInfo(void) const;
         bool _containsOnlySpaces(std::string const s);
-        // Getters
+
         std::string const getFirstName(void) const;
         std::string const getLastName(void) const;
         std::string const getNickname(void) const;
         std::string const getPhoneNumber(void) const;
         std::string const getSecret(void) const;
 
-        // Setters
+
         bool setFirstName(std::string str);
         bool setLastName(std::string str);
         bool setNickname(std::string str);
