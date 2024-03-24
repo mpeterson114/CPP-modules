@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 09:46:31 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/03/21 14:48:28 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/03/24 10:14:52 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ private:
     int _index;
     bool _error;
     
-    std::string _getInput(std::string const prompt);
+    std::string _enterInput(std::string const prompt);
     bool _showContactAtIndex(std::string const input) const;
     void _displayTable() const;
     void _formatTableInput(std::string str) const;

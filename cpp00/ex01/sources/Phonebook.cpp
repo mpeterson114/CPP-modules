@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 09:46:41 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/03/22 17:25:57 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/03/24 10:15:21 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Phonebook::~Phonebook()
 
 /* PRIVATE FUNCTIONS */
 
-std::string Phonebook::_getInput(std::string const prompt)
+std::string Phonebook::_enterInput(std::string const prompt)
 {
     std::string line;
 
@@ -97,27 +97,27 @@ bool Phonebook::addContact(void)
 		_index = 0;
 	}
 	while (!_error) {
-		input = _getInput("first name");
+		input = _enterInput("first name");
 		if (_error || this->_contacts[_index].setFirstName(input))
 			break ;
 	}
 	while (!_error) {
-		input = _getInput("last name");
+		input = _enterInput("last name");
 		if (_error || this->_contacts[_index].setLastName(input))
 			break ;
 	}
 	while (!_error) {
-		input = _getInput("nickname");
+		input = _enterInput("nickname");
 		if (_error || this->_contacts[_index].setNickname(input))
 			break ;
 	}
 	while (!_error) {
-		input = _getInput("phone number");
+		input = _enterInput("phone number");
 		if (_error || this->_contacts[_index].setPhoneNumber(input))
 			break ;
 	}
 	while (!_error) {
-		input = _getInput("darkest secret");
+		input = _enterInput("darkest secret");
 		if (_error || this->_contacts[_index].setSecret(input))
 			break ;
 	}
@@ -138,7 +138,7 @@ bool Phonebook::searchContact(void)
 		return (true);
 	}
 	this->_displayTable();
-	input = _getInput("the index of the contact to display");
+	input = _enterInput("the index of the contact to display");
 	this->_showContactAtIndex((std::string const)input);
 	return (true);
 }
