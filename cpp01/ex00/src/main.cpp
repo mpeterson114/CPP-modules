@@ -18,7 +18,7 @@ int main()
     Zombie *zombie = newZombie("HeapZombie");
     zombie->announce();
     delete(zombie);
-    std::cout << "NAME: ChumpZombie" << std::endl;
-    randomChump("ChumpZombie");
+    std::cout << "NAME: StackZombie" << std::endl;
+    randomChump("StackZombie");
     return (0);
 }

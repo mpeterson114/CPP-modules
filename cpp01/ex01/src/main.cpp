@@ -12,11 +12,6 @@
 
 #include "Zombie.hpp"
 
-// void leaks(void)
-// {
-//     system("leaks Moar_Brainz");
-// }
-
 int main()
 {
     int i = 0;
@@ -27,7 +22,6 @@ int main()
         zombie[i].announce();
         i++;
     }
-    //atexit(leaks);
     delete [] zombie;
     return 0;
 }
