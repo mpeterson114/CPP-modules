@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 10:07:04 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/03/07 10:07:05 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/04/02 13:47:58 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ HumanB::HumanB(std::string name) : _name(name), _weapon(NULL) {}
 
 HumanB::~HumanB(void) {}
 
-void HumanB::attack(void) const 
+void HumanB::attack(void) const
 {
     if (this->_weapon)
         std::cout << this->_name << " attacks with their " << this->_weapon->getType() << std::endl;

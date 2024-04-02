@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 10:07:25 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/03/07 13:11:42 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/04/02 15:36:17 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,7 @@ void Harl::complain(std::string level)
             return ;
         }
     }
+    std::cout << "Sorry! '" << level << "' isn't a complaint option, Harl!" << std::endl;
+    return ;
 }
 

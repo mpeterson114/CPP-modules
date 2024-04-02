@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 10:07:09 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/03/07 10:07:10 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/04/02 13:20:30 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,3 @@ void Weapon::setType(const std::string &newType)
 {
     this->_type = newType;
 }
-

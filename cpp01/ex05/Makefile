@@ -4,7 +4,7 @@ YELLOW =		\033[0;93m
 GREEN =			\033[0;92m
 WHITE =			\033[0;37m
 
-NAME = Harl_2.0
+NAME = harl2.0
 
 SRCS = main.cpp \
 		Harl.cpp \

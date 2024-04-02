@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 10:07:19 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/03/07 10:07:20 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/04/02 14:01:06 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <fstream>
 #include <string>
 
-int replace(char **argv, std::string contents)
+int ftReplace(char **argv, std::string contents)
 {
     std::ofstream outfile;
     int pos;
@@ -68,7 +68,6 @@ int main(int argc, char **argv)
         while (!infile.eof() && infile >> std::noskipws >> c)
             contents += c;
         infile.close();
-        return (replace(argv, contents));
+        return (ftReplace(argv, contents));
     }
-
 }
