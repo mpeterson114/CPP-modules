@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 17:01:38 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/03/17 17:01:39 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/04/04 16:16:04 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void ScavTrap::attack(const std::string &target)
     }
     if (this->_hitPoints <= 0)
     {
-        std::cout << "No hit points left, ScavTrap unable to attack" << std::endl;
+        std::cout << "No hit points left, ScavTrap " << this->_name << " unable to attack" << std::endl;
         return ;
     }
     std::cout << "ScavTrap " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
