@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 17:02:54 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/03/17 17:02:55 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/04/04 15:09:48 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main( void ) {
     Fixed a;
-    Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+    Fixed const b( Fixed( 5.05f ) / Fixed( 2 ) );
 
     std::cout << a << std::endl;
     std::cout << ++a << std::endl;

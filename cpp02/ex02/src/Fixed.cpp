@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 17:02:51 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/03/17 17:02:52 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/04/04 15:03:07 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,7 +177,6 @@ const Fixed &Fixed::max(Fixed const &x, Fixed const &y)
 
 int Fixed::getRawBits(void) const
 {
-    //std::cout << "getRawBits member function called" << std::endl;
     return (this->_fixedPointVal);
 }
 
