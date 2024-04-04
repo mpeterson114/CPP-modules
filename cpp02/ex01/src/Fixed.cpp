@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 17:03:03 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/03/17 17:03:04 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/04/04 15:14:09 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ Fixed::~Fixed(void)
 /* Getters & Setters */
 int Fixed::getRawBits(void) const
 {
-    //std::cout << "getRawBits member function called" << std::endl;
     return (this->_fixedPointVal);
 }
 

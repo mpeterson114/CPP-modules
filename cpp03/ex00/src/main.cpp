@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 17:01:49 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/03/17 17:01:50 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/04/04 15:54:04 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,9 @@ int main(void)
         b.takeDamage(3);
         b.beRepaired(3);
     }
-    b.beRepaired(1);
+    std::cout << std::endl;
+    b.takeDamage(10);
+    b.attack("A");
     std::cout << std::endl;
     std::cout << "----------Destructors------------" << std::endl;
     std::cout << std::endl;

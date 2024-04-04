@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 17:01:46 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/03/17 17:01:47 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/04/04 15:47:26 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,10 +95,13 @@ void ClapTrap::beRepaired(unsigned int amount)
         std::cout << "No energy points left, ClapTrap unable to repair itself" << std::endl;
         return ;
     }
-    if (this->_hitPoints > 0)
-        std::cout << "ClapTrap " << this->_name << " has repaired itself and gained " << amount << " hit points back." << std::endl;
+    if (this->_hitPoints <= 0)
+    {
+        std::cout << "ClapTrap " << this->_name << " is dead and beyond repair" << std::endl;
+        return ;
+    }
     else
-        std::cout << "ClapTrap " << this->_name << " has been revived! Gained " << amount << " hit points back." << std::endl;
+        std::cout << "ClapTrap " << this->_name << " has repaired itself and gained " << amount << " hit points back." << std::endl;
     this->_energyPoints -= 1;
     this->_hitPoints += amount;
 }
