@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 17:00:55 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/03/17 17:00:56 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/04/05 12:43:06 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,26 @@ int main(void)
 {
     std::cout << "----------Constructors------------" << std::endl;
     std::cout << std::endl;
-    std::string	fragTrapName = "A";
-	std::string scavTrapName = "B";
+    // std::string	fragTrapName = "FTRP-A";
+    // std::string	fragTrapName = "FTRP-B";
+	// std::string STRP-C = "STRP-C";
 
-	FragTrap	fragTrap(fragTrapName);
-	ScavTrap	scavTrap(scavTrapName);
+	FragTrap	fragTrap("FTRP-A");
+    FragTrap	fragTrap("FTRP-B");
+	ScavTrap	scavTrap("STRP-C");
     std::cout << std::endl;
 
     std::cout << "-------------Battle---------------" << std::endl;
     std::cout << std::endl;
     fragTrap.highFivesGuys();
     scavTrap.guardGate();
-    fragTrap.attack(scavTrapName);
+    fragTrap.attack("STRP-C");
     scavTrap.takeDamage(30);
-    fragTrap.attack(scavTrapName);
+    fragTrap.attack("STRP-C");
     scavTrap.takeDamage(30);
-    fragTrap.attack(scavTrapName);
+    fragTrap.attack("STRP-C");
     scavTrap.takeDamage(30);
-    fragTrap.attack(scavTrapName);
+    fragTrap.attack("STRP-C");
     scavTrap.takeDamage(30);
     scavTrap.guardGate();
     scavTrap.beRepaired(10);
