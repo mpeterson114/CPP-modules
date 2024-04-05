@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 17:02:54 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/04/04 15:09:48 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/04/05 13:53:57 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,17 @@ int main( void ) {
     std::cout << a << std::endl;
     std::cout << a++ << std::endl;
     std::cout << a << std::endl;
-
+    std::cout << a-- << std::endl;
+    std::cout << a << std::endl;
+    std::cout << --a << std::endl;
+    std::cout << ++a << std::endl;
+    
     std::cout << b << std::endl;
 
-    std::cout << Fixed::max( a, b ) << std::endl;
+    std::cout << a + b << std::endl;
+    std::cout << b - a << std::endl;
+
+    std::cout << "Larger number is: " << Fixed::max( a, b ) << std::endl;
+    std::cout << "Smaller number is: " << Fixed::min( a, b ) << std::endl;
     return 0;
 }
