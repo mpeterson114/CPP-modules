@@ -15,7 +15,6 @@ class Animal {
         Animal &operator=(Animal const &copy);
         ~Animal();
 
-        
         virtual void makeSound();
 };
 
