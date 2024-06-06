@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 12:39:06 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/06/03 12:44:23 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/06/06 14:16:40 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ class Brain
         Brain &operator=(Brain const &copy);
         ~Brain();
   
+        std::string const &getIdea(int const &index) const;
+        void setIdea(std::string &idea, int const &index);
 };
 
 
