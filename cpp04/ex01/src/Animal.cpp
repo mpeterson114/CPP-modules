@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 11:02:35 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/06/03 11:39:00 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/08/06 12:00:08 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ Animal &Animal::operator=(Animal const &copy)
 
 Animal::~Animal()
 {
-    std::cout << "Animal destructor called" << std::endl;
+    
+    std::cout << "\033[38;5;213mAnimal destructor called\033[0m" << std::endl;
 }
 
 std::string const &Animal::getType() const

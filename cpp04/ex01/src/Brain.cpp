@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 12:48:14 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/06/03 13:19:41 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/08/06 12:15:27 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,23 @@ Brain &Brain::operator=(Brain const &copy)
     if (this != &copy)
     {
         size_t length = (sizeof(this->_ideas)/sizeof(this->_ideas[0]));
-        for (int i = 0; i < length; i++)
+        for (size_t i = 0; i < length; i++)
             this->_ideas[i] = copy._ideas[i];
     }
+    return (*this);
+}
+
+std::string const &Brain::getIdea(int const &index) const
+{
+    if (index >= 0 && index <= 100)
+        return (this->_ideas[index]);
+    return (this->_ideas[0]);
+}
+        
+        
+void Brain::setIdea(std::string &idea, int const &index)
+{
+    this->_ideas[index] = idea;
 }
 
 Brain::~Brain()
