@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 11:02:52 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/08/06 11:58:28 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/08/15 12:33:22 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,14 @@ Cat::~Cat()
     delete this->_brain;
 }
 
-Brain *Cat::getBrain(void) const
+Brain &Cat::getBrain(void) const
 {
-    return (this->_brain);
+    return (*this->_brain);
+}
+
+void Cat::setBrain(Brain const &brain)
+{
+    *this->_brain = brain;
 }
 
 void Cat::makeSound() const

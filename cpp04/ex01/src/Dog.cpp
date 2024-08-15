@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 11:02:55 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/08/06 11:58:47 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/08/15 12:33:09 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,14 @@ Dog::~Dog()
     delete this->_brain;
 }
 
-Brain *Dog::getBrain(void) const
+Brain &Dog::getBrain(void) const
 {
-    return (this->_brain);
+    return (*this->_brain);
+}
+
+void Dog::setBrain(Brain const &brain)
+{
+    *this->_brain = brain;
 }
 
 void Dog::makeSound() const

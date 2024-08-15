@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 11:02:32 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/08/06 11:11:48 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/08/15 12:31:11 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ class Dog: public Animal
         Dog &operator=(Dog const &copy);
         ~Dog();
 
-        Brain *getBrain(void) const;
+        Brain &getBrain(void) const;
+        void setBrain(Brain const &brain);
         void makeSound() const;
 };
 

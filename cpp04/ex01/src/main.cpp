@@ -16,7 +16,7 @@ int main()
     for (int i = 0; i < number; i++)
     {
         if (i < number / 2)
-            animalArr[i] = new Dog();
+            animalArr[i] = new Dog(); 
         else
             animalArr[i] = new Cat();
         std::cout << "\033[32m  Animal[" << i << "] = " << animalArr[i]->getType() << "\033[0m" << std::endl;
@@ -28,6 +28,11 @@ int main()
     
     std::cout << std::endl;
     std::cout << "**** Deep Copy Test ****" << std::endl;
+    Dog *dog1 = new Dog;
+    Dog *dog2 = new Dog(*dog1);
+
+    delete dog1;
+    delete dog2;
     
     return 0;
 }
