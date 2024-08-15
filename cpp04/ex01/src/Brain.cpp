@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 12:48:14 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/08/06 12:15:27 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/08/15 12:53:12 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ std::string const &Brain::getIdea(int const &index) const
 }
         
         
-void Brain::setIdea(std::string &idea, int const &index)
+void Brain::setIdea(std::string const &idea, int const &index)
 {
     this->_ideas[index] = idea;
 }

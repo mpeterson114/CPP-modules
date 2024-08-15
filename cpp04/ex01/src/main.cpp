@@ -27,12 +27,33 @@ int main()
         delete (animalArr[i]);
     
     std::cout << std::endl;
-    std::cout << "**** Deep Copy Test ****" << std::endl;
+    std::cout << "**** Dog Deep Copy Test w/ Copy Constructor ****" << std::endl;
     Dog *dog1 = new Dog;
+    Brain *dogBrain;
+    dogBrain = &dog1->getBrain();
+    dogBrain->setIdea("...........", 0);
     Dog *dog2 = new Dog(*dog1);
+    Brain *dB2;
+    dB2 = &dog2->getBrain();
+    std::cout << dB2->getIdea(0) << std::endl;
 
     delete dog1;
     delete dog2;
+
+    std::cout << std::endl;
+    std::cout << "**** Dog Deep Copy Test w/ Assignment Operator ****" << std::endl;
+    Dog *dogA = new Dog;
+    Dog *dogB = new Dog;
+    Brain *NEXT;
+    NEXT = &dogA->getBrain();
+    NEXT->setIdea("heyyyy.....", 0);
+    *dogB = *dogA;
+    Brain *nextDogsBrain;
+    nextDogsBrain = &dogB->getBrain();
+    std::cout << nextDogsBrain->getIdea(0) << std::endl;
+
+    delete dogA;
+    delete dogB;
     
     return 0;
 }
