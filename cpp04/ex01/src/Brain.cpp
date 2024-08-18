@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 12:48:14 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/08/15 12:53:12 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/08/18 13:15:49 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ Brain &Brain::operator=(Brain const &copy)
     return (*this);
 }
 
-std::string const &Brain::getIdea(int const &index) const
+const std::string &Brain::getIdea(int const &index) const
 {
     if (index >= 0 && index <= 100)
         return (this->_ideas[index]);

@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 11:02:42 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/08/15 12:25:04 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/08/18 11:44:20 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class Animal {
     * base class.
     * Also requires any derived classes to explicitly implement their own versions of this function
     */
-        virtual Brain &getBrain(void) const = 0;  
+        virtual const Brain &getBrain(void) const = 0;  
         std::string const &getType(void) const;
         virtual void makeSound() const;
     /* allows derived classes to optionally override makeSound() function from Animal class, 

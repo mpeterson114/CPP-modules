@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 11:02:55 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/08/15 12:33:09 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/08/18 11:44:37 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ Dog::~Dog()
     delete this->_brain;
 }
 
-Brain &Dog::getBrain(void) const
+const Brain &Dog::getBrain(void) const
 {
     return (*this->_brain);
 }
