@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/03 11:02:32 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/08/18 12:47:09 by mpeterso         ###   ########.fr       */
+/*   Created: 2024/06/03 12:39:06 by mpeterso          #+#    #+#             */
+/*   Updated: 2024/08/15 12:49:35 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include <iostream>
+#include <string>
 
-class Dog: public Animal
+class Brain
 {
     private:
-        Brain *_brain;
+        std::string _ideas[100];
         
     public:
-        Dog();
-        Dog(Dog const &copy);
-        Dog &operator=(Dog const &copy);
-        ~Dog();
-
-        Brain &getBrain(void) const;
-        void setBrain(Brain const &brain);
-        void makeSound() const;
+        Brain();
+        Brain(Brain const &copy);
+        Brain &operator=(Brain const &copy);
+        ~Brain();
+  
+        std::string const &getIdea(int const &index) const;
+        void setIdea(std::string const &idea, int const &index);
 };
+
+
+
 
 #endif

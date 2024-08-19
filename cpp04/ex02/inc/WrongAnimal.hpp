@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/03 11:02:32 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/08/18 12:47:09 by mpeterso         ###   ########.fr       */
+/*   Created: 2024/06/03 11:19:58 by mpeterso          #+#    #+#             */
+/*   Updated: 2024/06/03 11:37:18 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include <iostream>
+#include <string>
 
-class Dog: public Animal
-{
-    private:
-        Brain *_brain;
-        
+class WrongAnimal {
+    protected:
+        std::string _type;
+    
     public:
-        Dog();
-        Dog(Dog const &copy);
-        Dog &operator=(Dog const &copy);
-        ~Dog();
+        WrongAnimal();
+        WrongAnimal(std::string const &type);
+        WrongAnimal(WrongAnimal const &copy);
+        WrongAnimal &operator=(WrongAnimal const &copy);
+        virtual ~WrongAnimal();
 
-        Brain &getBrain(void) const;
-        void setBrain(Brain const &brain);
+        std::string const &getType(void) const;
         void makeSound() const;
 };
 

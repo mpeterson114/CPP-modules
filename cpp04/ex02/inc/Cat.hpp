@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/03 11:02:32 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/08/18 12:47:09 by mpeterso         ###   ########.fr       */
+/*   Created: 2024/06/03 11:02:26 by mpeterso          #+#    #+#             */
+/*   Updated: 2024/08/18 13:02:41 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
-class Dog: public Animal
+class Cat: public Animal
 {
     private:
         Brain *_brain;
         
     public:
-        Dog();
-        Dog(Dog const &copy);
-        Dog &operator=(Dog const &copy);
-        ~Dog();
+        Cat();
+        Cat(Cat const &copy);
+        Cat &operator=(Cat const &copy);
+        ~Cat();
 
         Brain &getBrain(void) const;
         void setBrain(Brain const &brain);
