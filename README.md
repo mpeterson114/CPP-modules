@@ -14,3 +14,6 @@ initialization lists, static, const, accessor/getters, class vs. struct
 
 ## CPP03
 > Inheritance, access specifier, virtual classes, multiple inheritance, the diamond problem
+
+## CPP04
+> Subtype polymorphism, abstract classes, interfaces, virtual keyword
