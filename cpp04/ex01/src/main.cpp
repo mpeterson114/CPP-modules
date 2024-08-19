@@ -3,12 +3,6 @@
 
 int main()
 {
-    // std::cout << "**** Subject Test ****" << std::endl;
-    // const Animal* j = new Dog();
-    // const Animal* i = new Cat();
-    // delete j;
-    // delete i;
-
     std::cout << std::endl;
     std::cout << "\033[38;5;209m************************************************\033[0m" << std::endl;
     std::cout << "\033[38;5;209m*               Animal Array Test              *\033[0m" << std::endl;
