@@ -44,7 +44,7 @@ Dog::~Dog()
     delete this->_brain;
 }
 
-const Brain &Dog::getBrain(void) const
+Brain &Dog::getBrain(void) const
 {
     return (*this->_brain);
 }

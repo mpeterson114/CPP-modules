@@ -33,7 +33,7 @@ class Animal {
     * base class.
     * Also requires any derived classes to explicitly implement their own versions of this function
     */
-        virtual const Brain &getBrain(void) const = 0;  
+        virtual Brain &getBrain(void) const = 0;  
         std::string const &getType(void) const;
         virtual void makeSound() const;
     /* allows derived classes to optionally override makeSound() function from Animal class, 

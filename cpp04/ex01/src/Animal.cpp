@@ -39,7 +39,7 @@ Animal &Animal::operator=(Animal const &copy)
 Animal::~Animal()
 {
     
-    std::cout << "\033[38;5;213mAnimal destructor called\033[0m" << std::endl;
+    std::cout << "Animal destructor called" << std::endl;
 }
 
 std::string const &Animal::getType() const
