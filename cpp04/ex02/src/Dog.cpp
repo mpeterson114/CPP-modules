@@ -12,13 +12,13 @@
 
 #include "Dog.hpp"
 
-Dog::Dog() : Animal(), _brain(new Brain())
+Dog::Dog() : AAnimal(), _brain(new Brain())
 {
     std::cout << "Dog constructor called" << std::endl;
     this->_type = "Dog";
 }
 
-Dog::Dog(Dog const &copy) : Animal(copy), _brain(NULL)
+Dog::Dog(Dog const &copy) : AAnimal(copy), _brain(NULL)
 {
     std::cout << "Dog copy constructor called" << std::endl;
     this->_type = copy._type;

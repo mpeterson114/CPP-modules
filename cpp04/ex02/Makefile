@@ -13,7 +13,7 @@ SRC_PATH = ./src/
 OBJ_PATH = ./objects/
 INC_PATH = ./inc/
 SRC = main.cpp \
-		Animal.cpp \
+		AAnimal.cpp \
 		Dog.cpp \
 		Cat.cpp \
 		WrongAnimal.cpp \
