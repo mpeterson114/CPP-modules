@@ -27,16 +27,11 @@ class Animal {
         Animal &operator=(Animal const &copy);
         virtual ~Animal();
 
-    /* pure virtual function ('=0'), no implementation in Animal.c. Makes Animal an abstract class
-    * that cannot be instantiated directly, can't create objects of this class. Only for use as a
-    * base class.
-    * Also requires any derived classes to explicitly implement their own versions of this function
-    */
         std::string const &getType(void) const;
         virtual void makeSound() const;
     /* allows derived classes to optionally override makeSound() function from Animal class, 
     *  can still be instantiated with default behavior. Animal class could still be instantiated
-    *  if only had this virtual function (and not the pure virtual getBrain() function)*/
+    *  if only had this virtual function (vs. if this were a pure virtual function) */
 };
 
 #endif

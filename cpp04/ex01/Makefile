@@ -36,7 +36,7 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.cpp
 		@$(CC) $(CFLAGS) -c $< -o $@ $(INC)
 
 $(NAME) : $(OBJS)
-		@$(CC) $(CFLAGS) $(OBJS) -o $@ $(INC)
+		@$(CC) $(CFLAGS) $(INC) -o $(NAME) $(OBJS)
 		@echo "\n$(GREEN)Objects and executables created successfully ✅\n"
 
 clean:

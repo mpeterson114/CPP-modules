@@ -1,5 +1,6 @@
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include "WrongCat.hpp"
 
 int main()
 {
@@ -43,6 +44,8 @@ int main()
     std::cout << "\033[38;5;161m<<<< Destructors >>>>>\033[0m" << std::endl;
     delete dogA;
     std::cout << std::endl;
+    std::cout << "Checking that dogB's still there..." << std::endl;
+    std::cout << dogB->getBrain().getIdea(0) << std::endl;
     delete dogB;
 
     std::cout << std::endl;
@@ -63,6 +66,8 @@ int main()
     std::cout << "\033[38;5;161m<<<< Destructors >>>>>\033[0m" << std::endl;
     delete dogC;
     std::cout << std::endl;
+    std::cout << "Checking that dogD's still there..." << std::endl;
+    std::cout << dogD->getBrain().getIdea(0) << std::endl;
     delete dogD;
     std::cout << std::endl;
 
