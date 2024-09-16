@@ -2,6 +2,9 @@
 
 int main()
 {
+    std::cout << "----------------------------------------" << std::endl;
+    std::cout << "   Incrementing/Decrementing Tests...   " << std::endl;
+    std::cout << "----------------------------------------" << std::endl;
     Bureaucrat A("A", 10);
     std::cout << "-Name: " << A.getName() << std::endl;
     std::cout << "-Grade: " << A.getGrade() << std::endl;
@@ -19,7 +22,7 @@ int main()
     }
     catch (const std::exception &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << e.what() << std::endl;
     }
     std::cout << std::endl;
     Bureaucrat B("B", 140);
@@ -39,17 +42,19 @@ int main()
     }
     catch (const std::exception &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << e.what() << std::endl;
     }
     std::cout << std::endl;
-    std::cout << "Attempting to create Bureaucrats with invalid grades..." << std::endl;
+    std::cout << "----------------------------------------------------------------" << std::endl;
+    std::cout << "   Test: Attempting to create Bureaucrats with invalid grades..." << std::endl;
+    std::cout << "----------------------------------------------------------------" << std::endl;
     try
     {
         Bureaucrat C("C", 151);
     }
     catch (const std::exception &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << e.what() << std::endl;
     }
     std::cout << std::endl;
     try
@@ -58,8 +63,16 @@ int main()
     }
     catch (const std::exception &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << e.what() << std::endl;
     }
     std::cout << std::endl;
-
+    try
+    {
+        B.decrement(1);
+    }
+    catch(...)
+    {
+        std::cerr << "Catch-all handler" << std::endl;
+    }
+    std::cout << std::endl;
 }

@@ -4,22 +4,18 @@
 #include <iostream>
 #include <string>
 #include <exception>
+#include "AForm.hpp"
 
-/* Declaring default constructor as private explicitly prevents 
-    default construction without specifying the necessary parameters.
-
-    Particularly useful when 'const' member variables are involved, 
-    since their values need to be assigned upon creation and cannot 
-    be modified afterward. */
+class AForm;
 
 class Bureaucrat
 {
     private:
         std::string const _name;
         int _grade;
-         Bureaucrat();
 
     public:
+        Bureaucrat();
         Bureaucrat(std::string const &name, int grade);
         Bureaucrat(Bureaucrat const &copy);
         Bureaucrat &operator=(Bureaucrat const &copy);
@@ -29,6 +25,7 @@ class Bureaucrat
         int const &getGrade() const;
         void increment(int amount);
         void decrement(int amount);
+        void signForm(AForm &form);
 
         class GradeTooLowException : public std::exception
         {
@@ -42,7 +39,7 @@ class Bureaucrat
         };
 };
 
-std::ostream &operator<<(std::ostream &stream, const Bureaucrat &other);
+std::ostream& operator<<(std::ostream& stream, const Bureaucrat& other);
 
 
 #endif

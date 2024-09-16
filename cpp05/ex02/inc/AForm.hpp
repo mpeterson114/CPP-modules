@@ -1,5 +1,5 @@
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 #include <iostream>
 #include <string>
@@ -10,7 +10,7 @@ class Bureaucrat;
 
 class AForm
 {
-    private:
+    protected:
         std::string const _name;
         bool _isSigned;
         int const _signGrade;
