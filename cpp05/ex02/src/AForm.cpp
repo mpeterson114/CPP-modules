@@ -64,6 +64,16 @@ int const &AForm::getExGrade() const
     return this->_exGrade;
 }
 
+std::string const &AForm::getTarget() const
+{
+    return this->_target;
+}
+
+void AForm::setTarget(const std::string &target)
+{
+    this->_target = target;
+}
+
 void AForm::beSigned(Bureaucrat &bureaucrat)
 {
     if (bureaucrat.getGrade() > this->_signGrade)

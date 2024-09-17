@@ -8,13 +8,25 @@
 
 class Bureaucrat;
 
+/* Base class member variables left as private (not protected), 
+    derived classes can still access through public getter functions. 
+    Stricter encapsulation 
+    
+    -'_name' can be const since it doesn't change after creation, 
+        doesn't need setter
+
+    -'_target' shouldn't be const since it has setter fxn; will be 
+        set after creation via derived class constructors 
+        (needs setter function) */
+
 class AForm
 {
-    protected:
+    private:
         std::string const _name;
         bool _isSigned;
         int const _signGrade;
         int const _exGrade;
+        std::string _target;
         AForm();
 
     public:
@@ -27,7 +39,12 @@ class AForm
         bool getIsSigned() const;
         int const &getSignGrade() const;
         int const &getExGrade() const;
+        std::string const &getTarget() const;
+        
+        void setTarget(const std::string &target);
+
         void beSigned(Bureaucrat &bureaucrat);
+        virtual void execute(Bureaucrat const &executor) const = 0;
 
         class GradeTooLowException : public std::exception
         {

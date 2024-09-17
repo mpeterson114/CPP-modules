@@ -26,6 +26,7 @@ class Bureaucrat
         void increment(int amount);
         void decrement(int amount);
         void signForm(AForm &form);
+        void executeForm(AForm const &form);
 
         class GradeTooLowException : public std::exception
         {
