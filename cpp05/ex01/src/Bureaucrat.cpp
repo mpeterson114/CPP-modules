@@ -62,7 +62,7 @@ void Bureaucrat::decrement(int amount)
     this->_grade += amount;
 }
 
-void Bureaucrat::signForm(AForm &form)
+void Bureaucrat::signForm(Form &form)
 {
     if (form.getIsSigned() == false)
     {
@@ -77,7 +77,7 @@ void Bureaucrat::signForm(AForm &form)
         }
     }
     else
-        throw AForm::IsAlreadySigned();
+        throw Form::IsAlreadySigned();
 }
 
 /* EXCEPTIONS */

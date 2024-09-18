@@ -17,16 +17,38 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm co
         this->setTarget(copy.getTarget());
     return *this;
 }
-        
-        
+       
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
     if (executor.getGrade() > this->getExGrade())
         throw AForm::GradeTooLowException();
+    else if (this->getIsSigned() == false)
+        throw AForm::FormNotSigned();
     else
-        // Create a file <target>_shrubbery in the working directory, and writes ASCII trees inside it.
+    {
+        std::ofstream outfile;
+        
+        outfile.open((this->getTarget() + "_shrubbery").c_str());
+        if (outfile.fail()) 
+        {
+            std::cerr << "\033[38;5;161mError: Unable to create the file.\033[0m" << std::endl;
+            return ;
+        }
+        outfile <<  "      /\\      \n"
+                <<  "     /\\*\\     \n"
+                <<  "    /\\O\\*\\    \n"
+                <<  "   /*/\\/\\/\\   \n"
+                <<  "  /\\O\\/\\*\\/\\  \n"
+                <<  " /\\*\\/\\*\\/\\/\\ \n"
+                <<  "/\\O\\/\\/*/\\/O/\\\n"
+                <<  "      ||      \n"
+                <<  "      ||      \n"
+                <<  "      ||      \n";
+        outfile.close();
+        std::cout << "\033[32m" << executor.getName() << " has created a shrubbery at " << this->getTarget() << "_shrubbery.\033[0m" << std::endl;
+    }
 }
 
 std::ostream &operator<<(std::ostream &stream, const ShrubberyCreationForm &other)

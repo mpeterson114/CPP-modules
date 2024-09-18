@@ -2,27 +2,27 @@
 #include "Bureaucrat.hpp"
 
 /* CONSTRUCTORS, ASSIGNMENT OPERATOR, DESTRUCTOR */
-AForm::AForm(std::string const &name, int signGrade, int exGrade) : _name(name), _isSigned(false), _signGrade(signGrade), _exGrade(exGrade)
+Form::Form(std::string const &name, int signGrade, int exGrade) : _name(name), _isSigned(false), _signGrade(signGrade), _exGrade(exGrade)
 {
     if (signGrade > 150 || exGrade > 150)
-        throw AForm::GradeTooLowException();
+        throw Form::GradeTooLowException();
     else if (signGrade < 1 || exGrade < 1)
-        throw AForm::GradeTooHighException();
+        throw Form::GradeTooHighException();
     std::cout << "\033[32mForm " << this->_name << " has been created.\033[0m" << std::endl;
 }
 
-AForm::AForm(AForm const &copy) : _name(copy._name), _isSigned(copy._isSigned), _signGrade(copy._signGrade), _exGrade(copy._exGrade)
+Form::Form(Form const &copy) : _name(copy._name), _isSigned(copy._isSigned), _signGrade(copy._signGrade), _exGrade(copy._exGrade)
 {
     std::cout << "Copy constructor called" << std::endl;
 }
 
-AForm::~AForm()
+Form::~Form()
 {
     std::cout << "\033[38;5;161mForm " << this->_name << " has been destroyed.\033[0m" << std::endl;
 }
 
 /* OPERATOR OVERLOADS */
-AForm &AForm::operator=(AForm const &copy) 
+Form &Form::operator=(Form const &copy) 
 {
     std::cout << "Form assignment operator called" << std::endl;
     if (this != &copy)
@@ -30,7 +30,7 @@ AForm &AForm::operator=(AForm const &copy)
     return *this;
 }
 
-std::ostream &operator<<(std::ostream &stream, const AForm &other)
+std::ostream &operator<<(std::ostream &stream, const Form &other)
 {
     stream << "-Form name: " << other.getName() << std::endl;
     stream << "-Grade needed to sign: " << other.getSignGrade() << std::endl;
@@ -44,46 +44,46 @@ std::ostream &operator<<(std::ostream &stream, const AForm &other)
 }
 
 /* MEMBER FUNCTIONS */
-std::string const &AForm::getName() const
+std::string const &Form::getName() const
 {
     return this->_name;
 }
 
-bool AForm::getIsSigned() const
+bool Form::getIsSigned() const
 {
     return this->_isSigned;
 }
 
-int const &AForm::getSignGrade() const
+int const &Form::getSignGrade() const
 {
     return this->_signGrade;
 }
 
-int const &AForm::getExGrade() const
+int const &Form::getExGrade() const
 {
     return this->_exGrade;
 }
 
-void AForm::beSigned(Bureaucrat &bureaucrat)
+void Form::beSigned(Bureaucrat &bureaucrat)
 {
     if (bureaucrat.getGrade() > this->_signGrade)
-        throw AForm::GradeTooLowException();
+        throw Form::GradeTooLowException();
     else
         this->_isSigned = true;
 }
 
 /* EXCEPTIONS */
-const char *AForm::GradeTooHighException::what() const throw()
+const char *Form::GradeTooHighException::what() const throw()
 {
     return "\033[38;5;209mgrade is too high!\033[0m";
 }
 
-const char *AForm::GradeTooLowException::what() const throw()
+const char *Form::GradeTooLowException::what() const throw()
 {
     return "\033[38;5;209mgrade is too low!\033[0m";
 }
 
-const char *AForm::IsAlreadySigned::what() const throw()
+const char *Form::IsAlreadySigned::what() const throw()
 {
     return "\033[38;5;209mThis form is already signed!\033[0m";
 }

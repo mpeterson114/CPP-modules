@@ -8,7 +8,7 @@ AForm::AForm(std::string const &name, int signGrade, int exGrade) : _name(name),
         throw AForm::GradeTooLowException();
     else if (signGrade < 1 || exGrade < 1)
         throw AForm::GradeTooHighException();
-    std::cout << "\033[32mForm " << this->_name << " has been created.\033[0m" << std::endl;
+    std::cout << "Form " << this->_name << " has been created." << std::endl;
 }
 
 AForm::AForm(AForm const &copy) : _name(copy._name), _isSigned(copy._isSigned), _signGrade(copy._signGrade), _exGrade(copy._exGrade)
@@ -18,7 +18,7 @@ AForm::AForm(AForm const &copy) : _name(copy._name), _isSigned(copy._isSigned), 
 
 AForm::~AForm()
 {
-    std::cout << "\033[38;5;161mForm " << this->_name << " has been destroyed.\033[0m" << std::endl;
+    std::cout << "Form " << this->_name << " has been destroyed." << std::endl;
 }
 
 /* OPERATOR OVERLOADS */
@@ -96,6 +96,11 @@ const char *AForm::GradeTooLowException::what() const throw()
 const char *AForm::IsAlreadySigned::what() const throw()
 {
     return "\033[38;5;209mThis form is already signed!\033[0m";
+}
+
+const char *AForm::FormNotSigned::what() const throw()
+{
+    return "\033[38;5;209mThis form has not been signed!\033[0m";
 }
 
 

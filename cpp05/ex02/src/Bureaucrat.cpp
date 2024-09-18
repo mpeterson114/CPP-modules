@@ -9,7 +9,7 @@ Bureaucrat::Bureaucrat(std::string const &name, int grade) : _name(name)
     else if (grade < 1)
         throw Bureaucrat::GradeTooHighException();
     this->_grade = grade;
-    std::cout << "\033[32mBureaucrat " << this->_name << " has been created\033[0m" << std::endl;
+    std::cout << "Bureaucrat " << this->_name << " has been created" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const &copy) : _name(copy._name), _grade(copy._grade)
@@ -19,7 +19,7 @@ Bureaucrat::Bureaucrat(Bureaucrat const &copy) : _name(copy._name), _grade(copy.
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout << "\033[38;5;161mBureaucrat " << this->_name << " has been destroyed\033[0m" << std::endl;
+    std::cout << "Bureaucrat " << this->_name << " has been destroyed" << std::endl;
 }
 
 /* OPERATOR OVERLOADS */
@@ -33,7 +33,7 @@ Bureaucrat &Bureaucrat::operator=(Bureaucrat const &copy)
 
 std::ostream& operator<<(std::ostream& stream, const Bureaucrat& other)
 {
-    stream << other.getName() << ", bureaucrat grade " << other.getGrade();
+    stream << "Name: " << other.getName() << ", Bureaucrat grade: " << other.getGrade();
     return (stream);
 }
 
@@ -79,24 +79,6 @@ void Bureaucrat::signForm(AForm &form)
     else
         throw AForm::IsAlreadySigned();
 }
-
-// void Bureaucrat::executeForm(AForm const &form)
-// {
-//     if (form.getIsSigned() == false)
-//     {
-//         try
-//         {
-//             form.execute(*this);
-//             std::cout << "\033[38;5;155m\"" << this->_name << "\"" << " executed " << "\"" << form.getName() << "\"\033[0m" << std::endl;
-//         }
-//         catch (std::exception &e)
-//         {
-//             std::cerr << "\033[38;5;209m\"" << this->_name << "\"" << " couldn't execute " << "\"" << form.getName() << "\"" << " because " << e.what() << "\033[0m" << std::endl;
-//         }
-//     }
-//     else
-//         throw AForm::IsAlreadySigned();
-// }
 
 /* EXCEPTIONS */
 const char *Bureaucrat::GradeTooHighException::what() const throw()

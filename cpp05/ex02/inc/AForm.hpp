@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <exception>
+#include <fstream>
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
@@ -57,6 +58,11 @@ class AForm
                 virtual const char *what() const throw();
         };
         class IsAlreadySigned : public std::exception
+        {
+            public:
+                virtual const char *what() const throw();
+        };
+        class FormNotSigned : public std::exception
         {
             public:
                 virtual const char *what() const throw();
