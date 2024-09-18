@@ -4,16 +4,6 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
-/* Create Bureaucrats (one ok grades, others too low/high) and each version of Forms 
--Test to try and create AForm object (can't because abstract)
--Print Info of each form w/ overload
--Sign forms failure (1 w/ each form)
--Sign forms success 
--Exec forms failure (1 b/c not signed, 1 b/c wrong grades)
--Exec forms success
-    -print Shrubbery file in SCF test */
-
-
 int main()
 {
     std::cout << "\033[34m------------------------------------\033[0m" << std::endl;
