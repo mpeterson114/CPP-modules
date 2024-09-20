@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Intern.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/20 10:36:46 by mpeterso          #+#    #+#             */
+/*   Updated: 2024/09/20 12:25:18 by mpeterso         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Intern.hpp"
 
 Intern::Intern()
 {
-    std::cout << "Intern constructor called" << std::endl;
+    std::cout << " *New Intern was hired* " <<  std::endl;
 }
 
 Intern::Intern(const Intern &copy)
@@ -12,7 +24,7 @@ Intern::Intern(const Intern &copy)
 
 Intern::~Intern()
 {
-    std::cout << "Intern destroyed" << std::endl;
+    std::cout << "Intern was destroyed" << std::endl;
 }
         
 Intern &Intern::operator=(const Intern &copy)
@@ -35,13 +47,13 @@ AForm *Intern::makeForm(const std::string &name, const std::string &target)
     switch(i)
     {
         case 0:
-            std::cout << "A ShrubberyCreationForm has been created" << std::endl;
+            std::cout << "Intern created " ;
             return new ShrubberyCreationForm(target);
         case 1:
-            std::cout << "A RobotomyRequestForm has been created" << std::endl;
+            std::cout << "Intern created " ;
             return new RobotomyRequestForm(target);
         case 2:
-            std::cout << "A PresidentialPardonForm has been created" << std::endl;
+            std::cout << "Intern created " ;
             return new PresidentialPardonForm(target);
         default:
             throw Intern::WrongNameException();

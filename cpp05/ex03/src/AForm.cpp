@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/20 10:36:41 by mpeterso          #+#    #+#             */
+/*   Updated: 2024/09/20 12:24:18 by mpeterso         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
@@ -8,7 +20,7 @@ AForm::AForm(std::string const &name, int signGrade, int exGrade) : _name(name),
         throw AForm::GradeTooLowException();
     else if (signGrade < 1 || exGrade < 1)
         throw AForm::GradeTooHighException();
-    std::cout << "Form " << this->_name << " has been created." << std::endl;
+    std::cout << "new form: " << this->_name << std::endl;
 }
 
 AForm::AForm(AForm const &copy) : _name(copy._name), _isSigned(copy._isSigned), _signGrade(copy._signGrade), _exGrade(copy._exGrade)
@@ -102,5 +114,3 @@ const char *AForm::FormNotSigned::what() const throw()
 {
     return "\033[38;5;209mThis form has not been signed!\033[0m";
 }
-
-

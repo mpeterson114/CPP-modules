@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/20 10:35:46 by mpeterso          #+#    #+#             */
+/*   Updated: 2024/09/20 12:50:38 by mpeterso         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
@@ -61,6 +73,7 @@ int main()
     std::cout << "\033[34m--------------------------------------------------------------------------\033[0m" << std::endl;
     try
     {
+        std::cout << "Attempting to create Form 'lmn'..." << std::endl;
         Form lmn("lmn", 141, 155);
     }
     catch (const std::exception &e)
@@ -69,6 +82,7 @@ int main()
     }
     try
     {
+        std::cout << "Re-attempting to create Form 'lmn'..." << std::endl;
         Form lmn("lmn", 141, 0);
     }
     catch (const std::exception &e)
@@ -77,6 +91,7 @@ int main()
     }
     try
     {
+        std::cout << "Attempting to create Bureaucrat 'C'..." << std::endl;
         Bureaucrat C("C", 0);
     }
     catch (const std::exception &e)
@@ -85,6 +100,7 @@ int main()
     }
     try
     {
+        std::cout << "Re-attempting to create Bureaucrat 'C'..." << std::endl;
         Bureaucrat C("C", 160);
     }
     catch (const std::exception &e)

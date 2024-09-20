@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/20 10:36:58 by mpeterso          #+#    #+#             */
+/*   Updated: 2024/09/20 11:41:11 by mpeterso         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ShrubberyCreationForm.hpp"
 #include "AForm.hpp"
 
@@ -47,7 +59,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
                 <<  "      ||      \n"
                 <<  "      ||      \n";
         outfile.close();
-        std::cout << "\033[32m" << executor.getName() << " has created a shrubbery at " << this->getTarget() << "_shrubbery.\033[0m" << std::endl;
+        std::cout << "\033[32mBureaucrat" << executor.getName() << " has created a shrubbery at " << this->getTarget() << "_shrubbery.\033[0m" << std::endl;
     }
 }
 

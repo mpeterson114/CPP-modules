@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Form.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/20 10:35:43 by mpeterso          #+#    #+#             */
+/*   Updated: 2024/09/20 12:36:54 by mpeterso         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
@@ -87,5 +99,3 @@ const char *Form::IsAlreadySigned::what() const throw()
 {
     return "\033[38;5;209mThis form is already signed!\033[0m";
 }
-
-

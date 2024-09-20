@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/20 10:36:13 by mpeterso          #+#    #+#             */
+/*   Updated: 2024/09/20 12:31:00 by mpeterso         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
@@ -13,9 +25,9 @@ int main()
     Bureaucrat B("B", 40);
     Bureaucrat C("C", 135);
     std::cout << std::endl;
-    ShrubberyCreationForm scf("SCFTarget");
-    RobotomyRequestForm rrf("RRFTarget");
-    PresidentialPardonForm ppf("PPFTarget");
+    ShrubberyCreationForm scf("home");
+    RobotomyRequestForm rrf("John Doe");
+    PresidentialPardonForm ppf("Random Criminal");
     // AForm test("Test", 1, 1);    // won't compile abstract class object
     std::cout << std::endl;
 

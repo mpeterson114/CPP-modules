@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/20 10:35:21 by mpeterso          #+#    #+#             */
+/*   Updated: 2024/09/20 13:04:04 by mpeterso         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 
 int main()
@@ -50,6 +62,7 @@ int main()
     std::cout << "----------------------------------------------------------------" << std::endl;
     try
     {
+        std::cout << "Attempting to create Bureaucrat 'C' with grade '151'..." << std::endl;
         Bureaucrat C("C", 151);
     }
     catch (const std::exception &e)
@@ -59,6 +72,7 @@ int main()
     std::cout << std::endl;
     try
     {
+        std::cout << "Attempting to create Bureaucrat 'D' with grade '0'..." << std::endl;
         Bureaucrat D("D", 0);
     }
     catch (const std::exception &e)
@@ -68,11 +82,12 @@ int main()
     std::cout << std::endl;
     try
     {
+        std::cout << "Attempting to decrement grade for Bureaucrat 'B' with grade '" << B.getGrade() << "'..." << std::endl;
         B.decrement(1);
     }
-    catch(...)
+    catch (std::exception &e)
     {
-        std::cerr << "Catch-all handler" << std::endl;
+        std::cerr << e.what() << std::endl;
     }
     std::cout << std::endl;
 }

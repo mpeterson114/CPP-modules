@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/20 10:36:09 by mpeterso          #+#    #+#             */
+/*   Updated: 2024/09/20 12:30:51 by mpeterso         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
@@ -102,5 +114,3 @@ const char *AForm::FormNotSigned::what() const throw()
 {
     return "\033[38;5;209mThis form has not been signed!\033[0m";
 }
-
-

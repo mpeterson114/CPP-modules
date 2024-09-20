@@ -1,5 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/20 10:36:56 by mpeterso          #+#    #+#             */
+/*   Updated: 2024/09/20 12:35:22 by mpeterso         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "RobotomyRequestForm.hpp"
 #include "AForm.hpp"
+#include <cstdlib>
+#include <ctime>
+
+/* 'srand()' sets seed for start of random numbers list based on current time.
+Necessary or 'rand()' would generate the same sequence of random numbers each time.
+
+Since the seed is based on the current time, we know the random numbers sequence
+will be different each time the function is called */
 
 RobotomyRequestForm::RobotomyRequestForm(std::string const &target) : AForm("RobotomyRequestForm", 72, 45)
 {
@@ -20,11 +40,6 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &c
        
 RobotomyRequestForm::~RobotomyRequestForm() {}
 
-/* 'srand()' sets seed for start of random numbers list based on current time.
-Necessary or 'rand()' would generate the same sequence of random numbers each time.
-
-Since the seed is based on the current time, we know the random numbers sequence
-will be different each time the function is called */
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
     if (executor.getGrade() > this->getExGrade())

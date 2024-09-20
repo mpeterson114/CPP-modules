@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/20 10:35:55 by mpeterso          #+#    #+#             */
+/*   Updated: 2024/09/20 12:33:37 by mpeterso         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef AFORM_HPP
 # define AFORM_HPP
 
@@ -12,8 +24,8 @@ class Bureaucrat;
     -'_name' can be const since it doesn't change after creation, 
         doesn't need setter
 
-    -'_target' shouldn't be const since it has setter fxn; will be 
-        set after creation via derived class constructors 
+    -'_target' shouldn't be const; variable that only applies with derived
+        classes and will be set after creation via derived class constructors 
         (needs setter function) */
 
 class AForm
@@ -30,7 +42,7 @@ class AForm
         AForm(std::string const &name, int signGrade, int exGrade);
         AForm(AForm const &copy);
         AForm &operator=(AForm const &copy);
-        ~AForm();
+        virtual ~AForm();
 
         std::string const &getName() const;
         bool getIsSigned() const;
