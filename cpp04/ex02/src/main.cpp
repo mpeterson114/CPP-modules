@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/25 17:16:02 by mpeterso          #+#    #+#             */
+/*   Updated: 2024/08/25 17:16:03 by mpeterso         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "WrongCat.hpp"
@@ -18,7 +30,7 @@ int main()
     std::cout << "\033[38;5;209m************************************************\033[0m" << std::endl;
     std::cout << "\033[38;5;209m*               Animal Array Test              *\033[0m" << std::endl;
     std::cout << "\033[38;5;209m************************************************\033[0m" << std::endl;
-    int number = 4;
+    const int number = 4;
     AAnimal *animalArr[number];
     for (int i = 0; i < number; i++)
     {
@@ -82,35 +94,3 @@ int main()
 
     return 0;
 }
-
-
-
-
-
-
-    // std::cout << "\033[38;5;209m************************************************\033[0m" << std::endl;
-    // std::cout << "\033[38;5;209m*             Create Dog & Cat Tests           *\033[0m" << std::endl;
-    // std::cout << "\033[38;5;209m************************************************\033[0m" << std::endl;
-    // Dog *dogA = new Dog();
-    // std::cout << std::endl;
-    // AAnimal *animal1 = new Dog();
-    // std::cout << std::endl;
-    // AAnimal *animal2 = new Cat();
-    // std::cout << std::endl;
-
-    // std::cout << "  DogA:";
-    // dogA->makeSound();
-    // std::cout << "  animal1:";
-    // animal1->makeSound();
-    // std::cout << "  animal2:";
-    // animal2->makeSound();
-
-    // std::cout << std::endl;
-    // std::cout << "\033[38;5;161m<<<< Destructors >>>>>\033[0m" << std::endl;
-    // delete dogA;
-    // std::cout << std::endl;
-    // delete animal1;
-    // std::cout << std::endl;
-    // delete animal2;
-
-    // return 0;

@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 11:02:55 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/08/18 11:44:37 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/08/25 17:10:06 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,3 @@ void Dog::makeSound() const
 {
     std::cout << "\033[34m * WOOF WOOF * \033[0m" << std::endl;
 }
-

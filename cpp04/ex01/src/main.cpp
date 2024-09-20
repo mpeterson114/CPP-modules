@@ -8,7 +8,7 @@ int main()
     std::cout << "\033[38;5;209m************************************************\033[0m" << std::endl;
     std::cout << "\033[38;5;209m*               Animal Array Test              *\033[0m" << std::endl;
     std::cout << "\033[38;5;209m************************************************\033[0m" << std::endl;
-    int number = 4;
+    const int number = 4;
     Animal *animalArr[number];
     for (int i = 0; i < number; i++)
     {

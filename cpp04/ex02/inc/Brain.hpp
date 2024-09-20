@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 12:39:06 by mpeterso          #+#    #+#             */
-/*   Updated: 2024/08/15 12:49:35 by mpeterso         ###   ########.fr       */
+/*   Updated: 2024/08/25 17:12:12 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,5 @@ class Brain
         std::string const &getIdea(int const &index) const;
         void setIdea(std::string const &idea, int const &index);
 };
-
-
-
 
 #endif
