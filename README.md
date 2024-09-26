@@ -17,3 +17,11 @@ initialization lists, static, const, accessor/getters, class vs. struct
 
 ## CPP04
 > Subtype polymorphism, abstract classes, interfaces, virtual keyword
+
+## CPP05
+> Repetition and exceptions
+
+## CPP06
+> Static_cast, dynamic_cast, reintepretate_cast, const_cast
+
+
