@@ -4,7 +4,7 @@ YELLOW =		\033[0;93m
 GREEN =			\033[0;92m
 WHITE =			\033[0;37m
 
-NAME = Bureaucrat
+NAME = Convert
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
@@ -13,12 +13,7 @@ SRC_PATH = ./src/
 OBJ_PATH = ./objects/
 INC_PATH = ./inc/
 SRC = main.cpp \
-		Bureaucrat.cpp \
-		AForm.cpp \
-		ShrubberyCreationForm.cpp \
-		RobotomyRequestForm.cpp \
-		PresidentialPardonForm.cpp \
-		Intern.cpp \
+		ScalarConverter.cpp \
 		
 SRCS = $(addprefix $(SRC_PATH), $(SRC))
 OBJ = $(SRC:.cpp=.o)
