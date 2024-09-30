@@ -4,6 +4,10 @@
 #include <string>
 #include <iostream>
 #include <cmath>
+#include <limits>
+#include <sstream>
+#include <iomanip>
+#include <exception>
 
 enum type 
 {
@@ -13,7 +17,7 @@ enum type
     DOUBLE,
     PSEUDO_F,
     PSEUDO_D,
-    UNDEFINED
+    UNKNOWN;
 };
 
 class ScalarConverter 
@@ -46,8 +50,11 @@ class ScalarConverter
         static void displayPseudoFloat(const std::string& input);
         static void displayPseudoDouble(const std::string& input);
 
-        //Exception for unknown variable type??
-
+        class UnknownType : public std::exception
+        {
+            public:
+                virtual const char *what() const throw();
+        };
 
     public:
         static void convert(const std::string& input);
