@@ -17,7 +17,7 @@ enum type
     DOUBLE,
     PSEUDO_F,
     PSEUDO_D,
-    UNKNOWN;
+    UNKNOWN
 };
 
 class ScalarConverter 
