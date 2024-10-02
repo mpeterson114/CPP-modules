@@ -71,6 +71,10 @@ bool ScalarConverter::isDouble(const std::string& input)
     return true;
 }
 
+/* Overflow/Underflow checks primarily necessary when converting from a larger
+    data type to a smaller one 
+    -When displaying 'char' values, do have to check if value is printable or not */
+
 void ScalarConverter::displayChar(const std::string& input)
 {
     char c = input[0];
@@ -86,7 +90,7 @@ void ScalarConverter::displayChar(const std::string& input)
 
 void ScalarConverter::displayInt(const std::string& input)
 {
-    double i;  // used to store the number converted from a string.
+    double i;  // used to store the number converted from a string, can accommodate range of values
     std::stringstream ss(input);  // creates stringstream object 'ss' and initializes with 'input'. 
                     //Allows you to treat the string as a stream, similar to how you would read from standard input.
     ss >> i;  // reads from ss (input), converts into specified type (double) and stores in i
@@ -97,17 +101,31 @@ void ScalarConverter::displayInt(const std::string& input)
     else
         std::cout << "Char: Non-displayable" << std::endl;
 
-    if (i >= std::numeric_limits<int>::min() && i <= std::numeric_limits<int>::max())
-        std::cout << "Int: " << i << std::endl;
+    if (i < std::numeric_limits<int>::min())
+        std::cout << "Int: Underflow, outside valid range for 'int'" << std::endl;
+    else if (i > std::numeric_limits<int>::max())
+        std::cout << "Int: Overflow, outside valid range for 'int'" << std::endl;
     else
-        std::cout << "Int: Invalid "
-    
+        std::cout << "Int: " << static_cast<int>(i) << std::endl;
 
+    if (i < std::numeric_limits<float>::min())
+        std::cout << "Float: Underflow, outside valid range for 'float'" << std::endl;
+    else if (i > std::numeric_limits<float>::max())
+        std::cout << "Float: Overflow, outside valid range for 'float'" << std::endl;
+    else
+        std::cout << "Float: " << static_cast<float>(i) << ".0f" << std::endl;
+        std::cout << "Double: " << static_cast<double>(i) << ".0" << std::endl;
+}
+
+void ScalarConverter::displayFloat(const std::string& input)
+{
 
 }
-        
-        static void displayFloat(const std::string& input);
-        static void displayDouble(const std::string& input);
+
+void ScalarConverter::displayDouble(const std::string& input)
+{
+
+}
         static void displayPseudoFloat(const std::string& input);
         static void displayPseudoDouble(const std::string& input);
 
