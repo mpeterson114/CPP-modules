@@ -111,8 +111,8 @@ void ScalarConverter::printChar()
     else
         std::cout << "Char: Non displayable" << std::endl;
     std::cout << "Int: " << static_cast<int>(c) << std::endl;
-    std::cout << "Float: " << static_cast<float>(c) << "f" << std::endl;
-    std::cout << "Double: " << static_cast<double>(c) << std::endl;
+    std::cout << "Float: " << static_cast<float>(c) << ".0f" << std::endl;
+    std::cout << "Double: " << static_cast<double>(c) <<".0" << std::endl;
 }
 
 void ScalarConverter::printNumber()
@@ -121,7 +121,7 @@ void ScalarConverter::printNumber()
     std::stringstream ss(SC::input);
     ss >> number;
 
-    if (number > std::numeric_limits<double>::max() || number < std::numeric_limits<double>::min())
+    if (number > std::numeric_limits<double>::max() || number < -std::numeric_limits<double>::max())
     {
         std::cout << "Char: Impossible (outside valid char range)" << std::endl;
         std::cout << "Int: Impossible (outside valid int range)" << std::endl;
@@ -142,17 +142,28 @@ void ScalarConverter::printNumber()
         std::cout << "Int: Impossible (outside valid int range)" << std::endl;
     else
         std::cout << "Int: " << static_cast<int>(number) << std::endl;
-    if (number > std::numeric_limits<float>::max() || number < std::numeric_limits<float>::min())
+    
+    if (number > std::numeric_limits<float>::max() || number < -std::numeric_limits<float>::max())
         std::cout << "Float: Impossible (outside valid float range)" << std::endl;
     else
-        std::cout << "Float: " << static_cast<float>(number) << "f" << std::endl;
-    std::cout << "Double: " << static_cast<double>(number) << std::endl;
+    {
+        if (static_cast<float>(number) - floorf(static_cast<float>(number)) == 0)
+            std::cout << "Float: " << static_cast<float>(number) << ".0f" << std::endl;
+        else
+            std::cout << "Float: " << static_cast<float>(number) << "f" << std::endl;
+    }
+    if (number - floor(number) == 0)
+        std::cout << "Double: " << static_cast<double>(number) << ".0" << std::endl;
+    else
+        std::cout << "Double: " << static_cast<float>(number) << std::endl;
+    
 }
 
 void ScalarConverter::printPseudo()
 {
     std::cout << "Char: Impossible (outside valid char range)" << std::endl;
     std::cout << "Int: Impossible (outside valid int range)" << std::endl;
+
     if (SC::input == "+inff" || SC::input == "+inf")
     {
         std::cout << "Float: +inff" << std::endl;
@@ -162,6 +173,11 @@ void ScalarConverter::printPseudo()
     {
         std::cout << "Float: -inff" << std::endl;
         std::cout << "Double: -inf" << std::endl;
+    }
+    else if (SC::input == "nanf" || SC::input == "nan")
+    {
+        std::cout << "Float: nanf" << std::endl;
+        std::cout << "Double: nan" << std::endl;
     }
 }
 
