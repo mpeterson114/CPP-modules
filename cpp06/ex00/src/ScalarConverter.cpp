@@ -16,143 +16,157 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& copy)
 
 ScalarConverter::~ScalarConverter() {} */
 
-bool ScalarConverter::isInt(const std::string& input)
+std::string ScalarConverter::input;
+t_type ScalarConverter::type;
+
+void ScalarConverter::convert(const std::string& input)
 {
-    size_t i;
-    if (input[i] == '+' || input[i] == '-')
-        i++;
-    for (i = 0; i < input.length(); i++)
+    if (input.length() == 0)
+        throw SC::InvalidType();
+    
+    SC::input = input;
+    SC::setType();
+
+    switch (SC::type)
     {
-        if (!isdigit(input[i]))
-            return false;
+        case CHAR: 
+            SC::printChar();
+            break;
+        case NUMBER:
+            SC::printNumber();
+            break;
+        case PSEUDO:
+            SC::printPseudo();
+            break;
+        case INVALID:
+            throw SC::InvalidType();
     }
-    return true;
 }
 
-bool ScalarConverter::isFloat(const std::string& input)
+void ScalarConverter::setType()
 {
-    size_t i;
+    // std::cout << "isNumber result " << isNumber() << std::endl;
+    if (SC::isChar())
+        SC::type = CHAR;
+    else if (SC::isNumber())
+        SC::type = NUMBER;
+    else if (SC::isPseudo())
+        SC::type = PSEUDO;
+    else
+        SC::type = INVALID;
+}
+
+bool ScalarConverter::isChar()
+{
+    if (SC::input.length() == 1 && !isdigit(SC::input[0]))
+        return true;
+    return false;
+}
+
+bool ScalarConverter::isNumber()
+{
+    size_t i = 0;
     bool hasDecimal = false;
 
-    if (input[i] == '+' || input[i] == '-')
+    if (SC::input[i] == '+' || SC::input[i] == '-')
         i++;
-    for (i = 0; i < input.length(); i++)
-    {
-        if (input[i] == '.' && !hasDecimal)
-            hasDecimal = true;
-        else if (input[i] == '.' && hasDecimal == true)
-            return false;
-        else if (!isdigit(input[i]) && input[i] != '.' && input[i] != 'f')
-            return false;
-        i++;
-    }
-    if (input[input.length() - 1] != 'f')
+    if (!isdigit(SC::input[i]) && SC::input[i] != '.')
         return false;
-    return true;
-}
-
-bool ScalarConverter::isDouble(const std::string& input)
-{
-    size_t i;
-    bool hasDecimal = false;
-
-    if (input[i] == '+' || input[i] == '-')
-        i++;
-    for (i = 0; i < input.length(); i++)
+    for (; i < SC::input.length(); i++)
     {
-        if (input[i] == '.' && !hasDecimal)
+        if (SC::input[i] == '.')
+        {
+            if (hasDecimal)
+                return false;
             hasDecimal = true;
-        else if (input[i] == '.' && hasDecimal == true)
-            return false;
-        else if (!isdigit(input[i]) && input[i] != '.')
-            return false;
-        i++;
+        }
+        else if (!isdigit(SC::input[i]))
+            break;
     }
-    return true;
+    if (SC::input[i] == 'f' && (isdigit(SC::input[i - 1]) || SC::input[i - 1] == '.'))
+    {
+        i++;
+        // std::cout << "i: " << i << std::endl;
+        // if (i != (SC::input.length()))
+        //     return false;
+    }
+    return i == SC::input.length();
+}
+        
+bool ScalarConverter::isPseudo()
+{
+    if (SC::input == "+inff" || SC::input == "-inff"
+        || SC::input == "nanf" || SC::input == "+inf" 
+        || SC::input == "-inf" || SC::input == "nan")
+        return true;
+    return false;
 }
 
-/* Overflow/Underflow checks primarily necessary when converting from a larger
-    data type to a smaller one 
-    -When displaying 'char' values, do have to check if value is printable or not */
-
-void ScalarConverter::displayChar(const std::string& input)
+void ScalarConverter::printChar()
 {
-    char c = input[0];
+    char c = SC::input[0];
     
     if (isprint(c))
         std::cout << "Char: '" << c << "'" << std::endl;
     else
-        std::cout << "Char: Non-displayable" << std::endl;
+        std::cout << "Char: Non displayable" << std::endl;
     std::cout << "Int: " << static_cast<int>(c) << std::endl;
-    std::cout << "Float: " << static_cast<float>(c) << ".0f" << std::endl;
-    std::cout << "Double: " << static_cast<double>(c) << ".0" << std::endl;
+    std::cout << "Float: " << static_cast<float>(c) << "f" << std::endl;
+    std::cout << "Double: " << static_cast<double>(c) << std::endl;
 }
 
-void ScalarConverter::displayInt(const std::string& input)
+void ScalarConverter::printNumber()
 {
-    double i;  // used to store the number converted from a string, can accommodate range of values
-    std::stringstream ss(input);  // creates stringstream object 'ss' and initializes with 'input'. 
-                    //Allows you to treat the string as a stream, similar to how you would read from standard input.
-    ss >> i;  // reads from ss (input), converts into specified type (double) and stores in i
+    double number;
+    std::stringstream ss(SC::input);
+    ss >> number;
 
-    if (isprint(static_cast<char>(i)) && i >= std::numeric_limits<char>::min() 
-        && i <= std::numeric_limits<char>::max())
-        std::cout << "Char: '" << i << "'" << std::endl;
+    if (number > std::numeric_limits<double>::max() || number < std::numeric_limits<double>::min())
+    {
+        std::cout << "Char: Impossible (outside valid char range)" << std::endl;
+        std::cout << "Int: Impossible (outside valid int range)" << std::endl;
+        std::cout << "Float: Impossible (outside valid float range)" << std::endl;
+        std::cout << "Double: Impossible (outside valid double range)" << std::endl;
+    }
+
+    if (number > std::numeric_limits<char>::max() || number < std::numeric_limits<char>::min())
+        std::cout << "Char: Impossible (outside valid char range)" << std::endl;
+    else if (number <= std::numeric_limits<char>::max() || number >= std::numeric_limits<char>::min())
+    {
+        if (!isprint(static_cast<char>(number)))
+            std::cout << "Char: Non displayable" << std::endl;
+        else
+            std::cout << "Char: " << static_cast<char>(number) << std::endl;
+    }
+    if (number > std::numeric_limits<int>::max() || number < std::numeric_limits<int>::min())
+        std::cout << "Int: Impossible (outside valid int range)" << std::endl;
     else
-        std::cout << "Char: Non-displayable" << std::endl;
-
-    if (i < std::numeric_limits<int>::min())
-        std::cout << "Int: Underflow, outside valid range for 'int'" << std::endl;
-    else if (i > std::numeric_limits<int>::max())
-        std::cout << "Int: Overflow, outside valid range for 'int'" << std::endl;
+        std::cout << "Int: " << static_cast<int>(number) << std::endl;
+    if (number > std::numeric_limits<float>::max() || number < std::numeric_limits<float>::min())
+        std::cout << "Float: Impossible (outside valid float range)" << std::endl;
     else
-        std::cout << "Int: " << static_cast<int>(i) << std::endl;
-
-    if (i < std::numeric_limits<float>::min())
-        std::cout << "Float: Underflow, outside valid range for 'float'" << std::endl;
-    else if (i > std::numeric_limits<float>::max())
-        std::cout << "Float: Overflow, outside valid range for 'float'" << std::endl;
-    else
-        std::cout << "Float: " << static_cast<float>(i) << ".0f" << std::endl;
-        std::cout << "Double: " << static_cast<double>(i) << ".0" << std::endl;
+        std::cout << "Float: " << static_cast<float>(number) << "f" << std::endl;
+    std::cout << "Double: " << static_cast<double>(number) << std::endl;
 }
 
-void ScalarConverter::displayFloat(const std::string& input)
+void ScalarConverter::printPseudo()
 {
-
+    std::cout << "Char: Impossible (outside valid char range)" << std::endl;
+    std::cout << "Int: Impossible (outside valid int range)" << std::endl;
+    if (SC::input == "+inff" || SC::input == "+inf")
+    {
+        std::cout << "Float: +inff" << std::endl;
+        std::cout << "Double: +inf" << std::endl;
+    }
+    else if (SC::input == "-inff" || SC::input == "-inf")
+    {
+        std::cout << "Float: -inff" << std::endl;
+        std::cout << "Double: -inf" << std::endl;
+    }
 }
 
-void ScalarConverter::displayDouble(const std::string& input)
+const char *ScalarConverter::InvalidType::what() const throw()
 {
-
-}
-        static void displayPseudoFloat(const std::string& input);
-        static void displayPseudoDouble(const std::string& input);
-
-std::string ScalarConverter::getType(const std::string& input)
-{
-    std::string type;
-
-    if (input == "inff" || input == "-inff" || input == "+inff" || input == "nanf")
-        type = PSEUDO_F;
-    else if ((input == "inf") || input == "-inf" || input == "+inf" || input == "nan")
-        type = PSEUDO_D;
-    else if (input.length() == 1 && !isdigit(input[0]))
-        type = CHAR;
-    else if (isInt(input))
-        type = INT;
-    else if (isDouble(input))
-        type = DOUBLE;
-    else if (isFloat(input))
-        type = FLOAT;
-    else 
-       type = UNKNOWN;
-       throw ScalarConverter::UnknownType();
-}
-
-/* Exception */
-const char *ScalarConverter::UnknownType::what() const throw()
-{
-    return "\033[38;5;209mUnknown variable type\033[0m";
+    return "\033[38;5;209mInvalid scalar conversion\033[0m";
 }
 

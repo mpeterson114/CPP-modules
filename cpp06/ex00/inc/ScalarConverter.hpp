@@ -2,63 +2,55 @@
 # define SCALARCONVERTER_HPP
 
 #include <string>
+#include <sstream>
 #include <iostream>
 #include <cmath>
 #include <limits>
-#include <sstream>
 #include <iomanip>
 #include <exception>
 
-enum type 
+typedef enum e_type 
 {
     CHAR,
-    INT,
-    FLOAT,
-    DOUBLE,
-    PSEUDO_F,
-    PSEUDO_D,
-    UNKNOWN
-};
+    NUMBER,
+    PSEUDO,
+    INVALID
+} t_type;
 
 class ScalarConverter 
 {
     private:
-        ScalarConverter();
+        explicit ScalarConverter();
         ScalarConverter(const ScalarConverter& copy);
         ScalarConverter& operator=(const ScalarConverter& copy);
         ~ScalarConverter();
 
-        static std::string getType(const std::string& input);
-        /* getType() format different from non-static getter functions:
-            1. Returns by value rather than 'const &' type: because function is static,
-            returning reference to local variable could cause dangling reference once
-            function goes out of scope
-                -doesn't have access to member variables throughout duration of program
-                via instantiation of object
+        static std::string input;
+        static t_type type;
 
-            2. Takes a parameter: doesn't have access to member variables through
-            object instantiation, relies on parameter for necessary info
-        */
+        /* these member functions don't need param passed, already have
+         access to static members*/
+        static bool isChar();
+        static bool isNumber();
+        static bool isPseudo();
 
-        static bool isInt(const std::string& input);
-        static bool isFloat(const std::string& input);
-        static bool isDouble(const std::string& input);
-        static void displayChar(const std::string& input);
-        static void displayInt(const std::string& input);
-        static void displayFloat(const std::string& input);
-        static void displayDouble(const std::string& input);
-        static void displayPseudoFloat(const std::string& input);
-        static void displayPseudoDouble(const std::string& input);
+        static void printChar();
+        static void printNumber();
+        static void printPseudo();
 
-        class UnknownType : public std::exception
+    public:
+        /* Alias to facilitate use of class throughout code */
+        typedef ScalarConverter SC;
+
+        static void convert(const std::string& input);
+
+        static void setType();
+
+        class InvalidType : public std::exception
         {
             public:
                 virtual const char *what() const throw();
         };
-
-    public:
-        static void convert(const std::string& input);
-
 };
 
 #endif
