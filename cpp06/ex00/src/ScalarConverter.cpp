@@ -117,9 +117,7 @@ void ScalarConverter::printChar()
 
 void ScalarConverter::printNumber()
 {
-    double number;
-    std::stringstream ss(SC::input);
-    ss >> number;
+    double number = static_cast<double>(strtod(SC::input.c_str(), NULL));
 
     if (number > std::numeric_limits<double>::max() || number < -std::numeric_limits<double>::max())
     {
@@ -127,6 +125,7 @@ void ScalarConverter::printNumber()
         std::cout << "Int: Impossible (outside valid int range)" << std::endl;
         std::cout << "Float: Impossible (outside valid float range)" << std::endl;
         std::cout << "Double: Impossible (outside valid double range)" << std::endl;
+        return;
     }
 
     if (number > std::numeric_limits<char>::max() || number < std::numeric_limits<char>::min())
@@ -136,7 +135,7 @@ void ScalarConverter::printNumber()
         if (!isprint(static_cast<char>(number)))
             std::cout << "Char: Non displayable" << std::endl;
         else
-            std::cout << "Char: " << static_cast<char>(number) << std::endl;
+            std::cout << "Char: '" << static_cast<char>(number) << "'" << std::endl;
     }
     if (number > std::numeric_limits<int>::max() || number < std::numeric_limits<int>::min())
         std::cout << "Int: Impossible (outside valid int range)" << std::endl;
@@ -147,10 +146,11 @@ void ScalarConverter::printNumber()
         std::cout << "Float: Impossible (outside valid float range)" << std::endl;
     else
     {
-        if (static_cast<float>(number) - floorf(static_cast<float>(number)) == 0)
-            std::cout << "Float: " << static_cast<float>(number) << ".0f" << std::endl;
+        float f = static_cast<float>(number);
+        if (f - floorf(f) == 0)
+            std::cout << "Float: " << f << ".0f" << std::endl;
         else
-            std::cout << "Float: " << static_cast<float>(number) << "f" << std::endl;
+            std::cout << "Float: " << f << "f" << std::endl;
     }
     if (number - floor(number) == 0)
         std::cout << "Double: " << static_cast<double>(number) << ".0" << std::endl;
