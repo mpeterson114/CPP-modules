@@ -27,6 +27,7 @@ class ScalarConverter
 
         static std::string input;
         static t_type type;
+        static bool hasDecimal;
 
         /* these member functions don't need param passed, already have
          access to static members*/

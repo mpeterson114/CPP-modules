@@ -18,6 +18,7 @@ ScalarConverter::~ScalarConverter() {} */
 
 std::string ScalarConverter::input;
 t_type ScalarConverter::type;
+bool ScalarConverter::hasDecimal = false;
 
 void ScalarConverter::convert(const std::string& input)
 {
@@ -45,7 +46,6 @@ void ScalarConverter::convert(const std::string& input)
 
 void ScalarConverter::setType()
 {
-    // std::cout << "isNumber result " << isNumber() << std::endl;
     if (SC::isChar())
         SC::type = CHAR;
     else if (SC::isNumber())
@@ -66,7 +66,7 @@ bool ScalarConverter::isChar()
 bool ScalarConverter::isNumber()
 {
     size_t i = 0;
-    bool hasDecimal = false;
+    SC::hasDecimal = false;
 
     if (SC::input[i] == '+' || SC::input[i] == '-')
         i++;
@@ -76,20 +76,15 @@ bool ScalarConverter::isNumber()
     {
         if (SC::input[i] == '.')
         {
-            if (hasDecimal)
+            if (SC::hasDecimal)
                 return false;
-            hasDecimal = true;
+            SC::hasDecimal = true;
         }
         else if (!isdigit(SC::input[i]))
             break;
     }
     if (SC::input[i] == 'f' && (isdigit(SC::input[i - 1]) || SC::input[i - 1] == '.'))
-    {
         i++;
-        // std::cout << "i: " << i << std::endl;
-        // if (i != (SC::input.length()))
-        //     return false;
-    }
     return i == SC::input.length();
 }
         
