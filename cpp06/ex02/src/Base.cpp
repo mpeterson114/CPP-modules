@@ -3,7 +3,7 @@
 #include "B.hpp"
 #include "C.hpp"
 
-Base::~Base() {};
+Base::~Base() {}
 
 Base* generate(void)
 {
