@@ -24,4 +24,10 @@ initialization lists, static, const, accessor/getters, class vs. struct
 ## CPP06
 > Static_cast, dynamic_cast, reintepretate_cast, const_cast
 
+## CPP07
+> Function and class templates
+
+##CPP08
+> Templated containers, iterators, algorithms
+
 
