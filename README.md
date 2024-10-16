@@ -27,7 +27,7 @@ initialization lists, static, const, accessor/getters, class vs. struct
 ## CPP07
 > Function and class templates
 
-##CPP08
+## CPP08
 > Templated containers, iterators, algorithms
 
 
