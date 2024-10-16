@@ -2,7 +2,7 @@
 # define ARRAY_HPP
 
 #include <iostream>
-#include <exception>
+#include <stdexcept>
 
 template<typename T>
 class Array
@@ -22,31 +22,49 @@ class Array
         
         Array(unsigned int n) : _size(n), _data(new T[n])
         {
-            std::cout << "Array parameterized constructor called" << std::endl;
+            /*std::cout << "Array parameterized constructor called" << std::endl;*/
             if (!this->_data)
                 throw std::bad_alloc();
         }; 
 
         Array(const Array& other) : _size(other._size), _data(new T[other._size])
         {
+            /*std::cout << "Array copy constructor called" << std::endl;*/
             if (!this->_data)
                 throw std::bad_alloc();
-            while (other->_data)
-                
-            
+            for (unsigned int i = 0; i < _size; i++)
+                this->_data[i] = other._data[i];
         }
 
-        Array &operator=(const Array& other) 
+        Array& operator=(const Array& other) 
         {
+            /*std::cout << "copy assignment operator called" << std::endl;*/
             if (this != &other)
             {
-                _size = other._size;
-                _data = other._data;
+                if (this->_data)
+                    delete[] this->_data;
+                this->_size = other._size;
+                this->_data = new T[other._size];
+                if (!this->_data)
+                    throw std::bad_alloc();
+                for (unsigned int i = 0; i < _size; i++)
+                    this->_data[i] = other._data[i];
             }
             return *this;
         }
 
-        ~Array();
+        ~Array() 
+        {
+            if (this->_data)
+                delete[] this->_data;
+        }
+        
+        T& operator[](unsigned int index)
+        {
+            if (index >= _size)
+                throw std::out_of_range("\033[35mIndex out of range\033[0m");
+            return _data[index];
+        }
 
         unsigned int size() const 
         {
@@ -54,8 +72,6 @@ class Array
         }
 
 };
-
-
 
 
 #endif
