@@ -32,7 +32,7 @@ class Array
             /*std::cout << "Array copy constructor called" << std::endl;*/
             if (!this->_data)
                 throw std::bad_alloc();
-            for (unsigned int i = 0; i < _size; i++)
+            for (size_t i = 0; i < _size; i++)
                 this->_data[i] = other._data[i];
         }
 
@@ -47,7 +47,7 @@ class Array
                 this->_data = new T[other._size];
                 if (!this->_data)
                     throw std::bad_alloc();
-                for (unsigned int i = 0; i < _size; i++)
+                for (size_t i = 0; i < _size; i++)
                     this->_data[i] = other._data[i];
             }
             return *this;
@@ -70,8 +70,6 @@ class Array
         {
             return this->_size;
         }
-
 };
-
 
 #endif
