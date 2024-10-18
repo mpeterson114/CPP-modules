@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <stdexcept>
+#include <cstdlib>
+#include <ctime>
 
 template<typename T>
 class Array
@@ -60,6 +62,13 @@ class Array
         }
         
         T& operator[](unsigned int index)
+        {
+            if (index >= _size)
+                throw std::out_of_range("\033[35mIndex out of range\033[0m");
+            return _data[index];
+        }
+
+        const T& operator[](unsigned int index) const
         {
             if (index >= _size)
                 throw std::out_of_range("\033[35mIndex out of range\033[0m");

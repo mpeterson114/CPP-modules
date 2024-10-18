@@ -20,7 +20,7 @@ class MutantStack : public std::stack<T>
         }
         ~MutantStack();
 
-        typedef typename std::stack
+        typedef typename std::stack::
 
 
         //push()
