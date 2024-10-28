@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <stack>
+#include <iterator>
 
 template<typename T>
 class MutantStack : public std::stack<T>
@@ -33,10 +34,10 @@ class MutantStack : public std::stack<T>
         typedef typename std::stack<T>::container_type::const_iterator const_iterator;
         typedef typename std::stack<T>::container_type::const_reverse_iterator const_rev_iterator;
 
-        const_iterator cbegin() const {return std::stack<T>::c.cbegin();}
-        const_iterator cend() const {return std::stack<T>::c.cend();}
-        const_rev_iterator crbegin() const {return std::stack<T>::c.crbegin();}
-        const_rev_iterator crend() const {return std::stack<T>::c.crend();}
+        const_iterator begin() const {return std::stack<T>::c.begin();}
+        const_iterator end() const {return std::stack<T>::c.end();}
+        const_rev_iterator rbegin() const {return std::stack<T>::c.rbegin();}
+        const_rev_iterator rend() const {return std::stack<T>::c.rend();}
 
 };
 

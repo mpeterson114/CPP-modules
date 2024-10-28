@@ -34,15 +34,15 @@ int main()
         std::cout << *rit << " ";
     std::cout << std::endl;
     std::cout << "Const iterator (forward): " << std::endl;
-    for (MutantStack<int>::const_iterator cit = myStack.cbegin(); cit != myStack.cend(); cit++)
+    for (MutantStack<int>::const_iterator cit = myStack.begin(); cit != myStack.end(); cit++)
         std::cout << *cit << " ";
     std::cout << std::endl;
     std::cout << "Const iterator (reverse): " << std::endl;
-    for (MutantStack<int>::const_rev_iterator crit = myStack.crbegin(); crit != myStack.crend(); crit++)
+    for (MutantStack<int>::const_rev_iterator crit = myStack.rbegin(); crit != myStack.rend(); crit++)
         std::cout << *crit << " ";
     std::cout << std::endl;
     // std::cout << "    Modify with const iterator (won't compile)..." << std::endl;
-    // for (MutantStack<int>::const_rev_iterator crit = myStack.crbegin(); crit != myStack.crend(); crit++)
+    // for (MutantStack<int>::const_rev_iterator crit = myStack.rbegin(); crit != myStack.rend(); crit++)
     // {
     //     std::cout << *crit << " ";
     //     (*crit) = 42;
@@ -111,14 +111,14 @@ int main()
         std::cout << *rit << " ";
     std::cout << std::endl;
     std::cout << "List const iterator (forward): " << std::endl;
-    for (std::list<int>::const_iterator cit = myList.cbegin(); cit != myList.cend(); cit++)
+    for (std::list<int>::const_iterator cit = myList.begin(); cit != myList.end(); cit++)
         std::cout << *cit << " ";
     std::cout << std::endl;
     std::cout << "List const iterator (reverse): " << std::endl;
-    for (std::list<int>::const_reverse_iterator crit = myList.crbegin(); crit != myList.crend(); crit++)
+    for (std::list<int>::const_reverse_iterator crit = myList.rbegin(); crit != myList.rend(); crit++)
         std::cout << *crit << " ";
     // std::cout << "    Modify with const iterator (won't compile)..." << std::endl;
-    // for (std::list<int>::const_reverse_iterator crit = myList.crbegin(); crit != myList.crend(); crit++)
+    // for (std::list<int>::const_reverse_iterator crit = myList.rbegin(); crit != myList.rend(); crit++)
     // {
     //     std::cout << *crit << " ";
     //     (*crit) = 42;

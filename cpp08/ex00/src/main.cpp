@@ -3,9 +3,12 @@
 #include <list>
 #include <deque>
 
-/* -Vector: Best for random access and when the size doesn't change much
+/* -Vector: Best for random access and when the size doesn't change much +
+     (contiguous memory storage)
     -List: Good for frequent insertions/deletions at any position but no random access
-    -Deque: Good for frequent operations at both ends, with decent random access performance 
+     (non-contiguous memory storage)
+    -Deque: Good for frequent operations at both ends, with decent random access performance
+     (segmented memory storage)
 */
 
 int main()

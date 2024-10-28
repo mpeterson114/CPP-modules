@@ -32,12 +32,12 @@ int main()
     std::cout << std::endl;
     std::cout << "  -> Creating Span of 1 number <-  " << std::endl;
     Span small(1);
-    std::cout << "Adding number <8>..." << std::endl;
+    std::cout << "Adding number <-42>..." << std::endl;
     small.addNumber(-42);
-    std::cout << "Adding another number <9>......" << std::endl;
+    std::cout << "Adding another number <-43>......" << std::endl;
     try
     {
-        small.addNumber(9);
+        small.addNumber(-43);
     }
     catch(const std::exception& e)
     {
