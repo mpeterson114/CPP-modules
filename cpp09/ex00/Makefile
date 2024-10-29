@@ -7,7 +7,7 @@ WHITE =			\033[0;37m
 NAME = btc
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address #-pedantic
 
 SRC_PATH = ./src/
 OBJ_PATH = ./objects/
