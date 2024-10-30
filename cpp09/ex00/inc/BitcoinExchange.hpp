@@ -18,7 +18,7 @@ class BitcoinExchange
         ~BitcoinExchange();
 
         void parseDb(const std::string& filename);
-        void parseInputFile(std::string filename);
+        void parseInputFile(const std::string& filename);
 
         void printDb() const;
         std::string intToString(int i);
@@ -26,7 +26,7 @@ class BitcoinExchange
         void isValidDate(const std::string& date);
 
         void checkLineDB(const std::string& line);
-        void checkInputLine(const std::string& line);
+        void checkInputLine(std::string line);
         
 
 };

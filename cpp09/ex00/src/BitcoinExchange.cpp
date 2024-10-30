@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <fstream>
 #include <exception>
+#include <string>
 
 BitcoinExchange::BitcoinExchange() {}
 
@@ -111,18 +112,82 @@ void BitcoinExchange::parseDb(const std::string& filename)
             continue ;
         }
     }
-    printDb();
+    //printDb();
     db.close();
 }
 
-void BitcoinExchange::checkInputLine(const std::string& line)
+void BitcoinExchange::checkInputLine(std::string line)
 {
+    if (line[0] == ' ' || line[0] == '\t')
+        throw std::runtime_error("Error: Input file line cannot begin with whitespace => " + line);
+    
+    size_t delimIndex = line.find(" | ");
+    if (delimIndex == std::string::npos)
+        throw std::runtime_error("Error: Valid delimiter not found in input file line => " + line);
+    if (std::count(line.begin(), line.end(), ' ' > 2))
+        throw std::runtime_error("Error: Invalid amount of whitespace in input file line => " + line);
+    line.erase(std::remove_if(line.begin(), line.end(), ::isspace), line.end());
     std::stringstream ss(line);
+    std::string key;
+    double value;
+    std::getline(ss, key, '|');
+    ss >> value;
+    isValidDate(key);
+    if (value < 0 || value > 1000)
+        throw std::runtime_error("Error: Invalid input value, must be between 0 and 1000 => " + line);
+    if (!ss.eof() || ss.fail())
+        throw std::runtime_error("Error: Invalid input line format => " + line);
+    if (_data.find(key) != _data.end())
+        std::cout << key << " => " << value << " = " << value * _data[key] << std::endl;
+    else
+    {
+        std::map<std::string, double>::iterator it = _data.lower_bound(key);
+        if (it == _data.begin())
+            throw std::runtime_error("Error: No exchange rate found for entered date => " + line);
+        else
+        {
+            it--;
+            std::cout << key << " => " << value << " = " << value * it->second << std::endl;
+        }
+    }
 
 }
 
-void BitcoinExchange::parseInputFile(std::string filename)
-{}
+void BitcoinExchange::parseInputFile(const std::string& filename)
+{
+    /* Need to convert filename to c string to work with ifstream in c++98 */
+    std::ifstream input(filename.c_str());
+    std::string line;
+
+    try
+    {
+        if (!input.is_open())
+            throw std::runtime_error("Error: Could not open input file");
+        std::getline(input, line);
+        if (line != "date | value")
+            throw std::runtime_error("Error: Invalid header format in input file");
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+        exit(EXIT_FAILURE);
+    }
+    while (std::getline(input, line))
+    {
+        std::stringstream ss(line);
+        //empty line check?
+        try
+        {
+            checkInputLine(line);
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << e.what() << std::endl;
+            continue ;
+        }
+    }
+    input.close();
+}
 
 /* Std::stringstream: 
     -Works with variety of data types

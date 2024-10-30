@@ -20,15 +20,15 @@
     -Add exceptions for formatting or invalid range errors w/o exiting program
 */
 
-int main()
+int main(int argc, char **argv)
 {
-    // if (argc != 2)
-    // {
-    //     std::cerr << "Invalid number of arguments (Usage: ./btc <input.csv>)" << std::endl;
-    //     return (1);
-    // }   
+    if (argc != 2)
+    {
+        std::cerr << "Invalid number of arguments (Usage: ./btc <input.csv>)" << std::endl;
+        return (1);
+    }   
     BitcoinExchange btc = BitcoinExchange();
     btc.parseDb("data.csv");
-    //btc.parseInputFile(argv[1]);
+    btc.parseInputFile(argv[1]);
     return (0);
 }
