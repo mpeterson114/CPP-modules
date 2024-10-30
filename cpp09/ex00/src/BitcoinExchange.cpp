@@ -175,7 +175,8 @@ void BitcoinExchange::parseInputFile(const std::string& filename)
     while (std::getline(input, line))
     {
         std::stringstream ss(line);
-        //empty line check?
+        if (line.empty())
+            continue;
         try
         {
             checkInputLine(line);
