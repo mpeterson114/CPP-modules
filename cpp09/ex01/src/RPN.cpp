@@ -19,12 +19,18 @@ RPN::~RPN() {}
 
 bool RPN::isValidNum(const std::string& token)
 {
+    //add + or - check here?
     if (token.empty())
         return false;
     std::stringstream ss(token);
-    
+    int i;
+    char c;
 
-
+    if (!(ss >> i))
+        return false;
+    if (ss >> c)
+        return false;
+    return true;
 }
 
 void RPN::calculate()
