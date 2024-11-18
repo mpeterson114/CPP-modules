@@ -19,6 +19,7 @@ class RPN
         ~RPN();
 
         bool isValidNum(const std::string& token);
+        int strToInt(const std::string& token);
         void calculate();
 };
 

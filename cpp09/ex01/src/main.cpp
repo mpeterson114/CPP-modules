@@ -7,5 +7,20 @@ then "push" the result back onto the stack. This mirrors the way RPN expressions
 
 int main(int argc, char **argv)
 {
-    
+    if (argc != 2)
+    {
+        std::cerr << "Invalid input...Usage: ./RPN \"<numbers>\"" << std::endl;
+        return 1;
+    }
+    RPN rpn(argv[1]);
+    try
+    {
+        rpn.calculate();
+    }
+    catch (std::exception& e)
+    {
+        std::cerr << "Error: " << e.what() << std::endl;
+        return 1;
+    }
+    return 0;
 }
