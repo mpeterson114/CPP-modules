@@ -5,13 +5,10 @@
 #include <algorithm>
 #include <deque>
 #include <vector>
+#include <sstream>
 
 class PmergeMe
 {
-    private:
-        template <typename T> void _mergeInsertionSort(T& container, int level);
-        template <typename T> void _swapPair(T it, int level);
-    
     public:
         PmergeMe();
         PmergeMe(const PmergeMe& other);
@@ -20,7 +17,35 @@ class PmergeMe
 
         void sortVector(std::vector<unsigned int>& vec);
         void sortDeque(std::deque<unsigned int>& deq);
+    private:
+        template <typename T> void _pairSwap(T it, int level)
+        {
+            
+        }
+
+        template <typename T> void _fordJohnson(T& container, int level)
+        {
+            typedef typename T::iterator it;
+
+            int numPairs = container.size() / level;
+            if (numPairs < 2)
+                return ;
+            bool isOdd = numPairs % 2 == 1;
+
+            it start = container.begin();
+            it last = jump(container.begin(), (level * numPairs));
+            it end = jump(last, -(isOdd * level));
+
+
+        }
+
 };
+
+template <typename T> T jump(T it, int steps)
+{
+    std::advance(it, steps);
+    return it;
+}
 
 
 
