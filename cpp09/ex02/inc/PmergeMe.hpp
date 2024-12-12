@@ -19,8 +19,8 @@ class PmergeMe
         void mergeInsertionList(std::list<int> &lst);
 
     private:
-        void insertVec(std::vector<int> &vec, int value, int end);
-        void insertList(std::list<int> &lst, int value);
+        void _insertVec(std::vector<int> &vec, int value, int end);
+        void _insertList(std::list<int> &lst, int value);
 };
 
 #endif

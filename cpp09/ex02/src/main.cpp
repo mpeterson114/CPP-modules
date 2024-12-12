@@ -21,7 +21,7 @@ int main(int argc, char **argv)
 {
     if (argc < 2)
     {
-        std::cerr << "Usage: " << argv[0] << " <list of positive numbers>" << std::endl;
+        std::cerr << "Error: Usage: " << argv[0] << " <list of positive numbers>" << std::endl;
         return 1;
     }
 
@@ -54,8 +54,8 @@ int main(int argc, char **argv)
     const clock_t timeList = static_cast<double>(clock() - startTimeList) / CLOCKS_PER_SEC * 1000000;
 
     std::cout << "After: ";
-    std::ostream_iterator<int> output_it(std::cout, " ");
-    std::copy(vec.begin(), vec.end(), output_it);
+    std::ostream_iterator<int> output_iter(std::cout, " ");
+    std::copy(lst.begin(), lst.end(), output_iter);
     std::cout << std::endl;
 
     std::cout << "Time to process a range of " << vec.size() << " elements with std::vector container: " << timeVec << " us" << std::endl;
