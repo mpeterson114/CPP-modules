@@ -49,21 +49,6 @@ void PmergeMe::mergeInsertionVec(std::vector<int> &vec)
         _insertVec(main, higherVals[i], main.size());
 
     std::vector<int> pend(lowerVals.begin() + 1, lowerVals.end());
-
-    /* Jacobsthal numbers: used to determine how many elements from 'pend' should be inserted into the 
-    vector 'main' in each iteration while minimizing the number of comparisons made
-        -Current Jacobsthal # (J) - previous Jacobsthal # in sequence (J - 1) is how we determine the number
-            of elements from pend[] to insert into main[] at each step.
-        - jacobsthalVals[] array contains pre-calculated # of elements to insert for each Jacobsthal number
-        - We exploit binary search's efficiency by dividing elements into groups that fit binary search's halving
-            process
-            - Multiple elements inserted at a time, reduces # of comparisons needed at each step 
-                - ** (2^(k+1) - 1) : binary search range at each level
-                -Jacobsthal number (J) = Starting point & how many elements to insert from that point (J - J(prev))
-                -K = index of J number we're using -> used to calc. binary search range (rather than having to search 
-                thru all elements) 
-        - Max array size of 63: beyond this values get too large to safely fit into 64-bit integer ranges
-        -'u' suffix (unsigned int): prevents unwanted overflow or negative values */
     
     static u_int64_t jacobsthalVals[63] = {
             2u, 2u, 6u, 10u, 22u, 42u, 86u, 170u, 342u, 682u, 1366u,
@@ -160,20 +145,20 @@ void PmergeMe::mergeInsertionList(std::list<int> &lst)
     lst = main;
 }
 
-void PmergeMe::_insertVec(std::vector<int> &vec, int value, int higher)
+void PmergeMe::_insertVec(std::vector<int> &vec, int value, int right)
 {
-    int lower = 0;
+    int left = 0;
 
-    while (lower < higher)
+    while (left < right)
     {
-        int mid = lower + (higher - lower) / 2;
+        int mid = left + (right - left) / 2;
 
         if (vec[mid] < value)
-            lower = mid + 1;
+            left = mid + 1;
         else
-            higher = mid;
+            right = mid;
     }
-    vec.insert(vec.begin() + lower, value);
+    vec.insert(vec.begin() + left, value);
 }
 
 void PmergeMe::_insertList(std::list<int> &lst, int value)

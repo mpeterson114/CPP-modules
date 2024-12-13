@@ -6,6 +6,9 @@
 #include <deque>
 #include <vector>
 #include <list>
+#include <iterator>
+#include <sstream>
+#include <cstring>
 
 class PmergeMe
 {

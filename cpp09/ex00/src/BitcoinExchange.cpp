@@ -47,7 +47,6 @@ void BitcoinExchange::isValidDate(const std::string& date)
     int year, month, day;
     char delim1, delim2;
 
-    //will this work if year is only 2 digits instead of 4?...
     if (!(ss >> year >> delim1 >> month >> delim2 >> day) || delim1 != '-' || delim2 != '-' || !ss.eof() || ss.fail())
         throw std::runtime_error("Error: Invalid date format => " + date);
     if (month < 1 || month > 12)
@@ -101,7 +100,6 @@ void BitcoinExchange::parseDb(const std::string& filename)
     while (std::getline(db, line))
     {
         std::stringstream ss(line);
-        //empty line check?
         try
         {
             checkLineDB(line);
@@ -112,7 +110,6 @@ void BitcoinExchange::parseDb(const std::string& filename)
             continue ;
         }
     }
-    //printDb();
     db.close();
 }
 
